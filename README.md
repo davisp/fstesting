@@ -9,17 +9,16 @@ This is a small repo to demonstrate running various fstests in GitHub Actions.
 - access()
 - chmod()
 - chown()
-
 - utime()
-
 - stat()
-
 - readlink()
-
 - setxattr()
 - getxattr()
 - listxattr()
 - removexattr()
+- link()
+- symlink()
+- rename()
 
 ### Files
 
@@ -27,25 +26,20 @@ This is a small repo to demonstrate running various fstests in GitHub Actions.
 - open()
 - close()
 - unlink()
-
 - read()
 - pread()
 - write()
 - pwrite()
 - truncate()
 - copy_file_range()
-
 - lseek()
-
+- fadvise
+- fallocate()
+- fcntl
+- fdatasync()
 - flock()
 - flush()
 - fsync()
-- fdatasync()
-- fallocate()
-
-- link()
-- symlink()
-- rename()
 
 ### Directories
 
