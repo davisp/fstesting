@@ -6,58 +6,58 @@ This is a small repo to demonstrate running various fstests in GitHub Actions.
 
 ### File Properties
 
-access()
-chmod()
-chown()
+- access()
+- chmod()
+- chown()
 
-utime()
+- utime()
 
-stat()
+- stat()
 
-readlink()
+- readlink()
 
-setxattr()
-getxattr()
-listxattr()
-removexattr()
+- setxattr()
+- getxattr()
+- listxattr()
+- removexattr()
 
 ### Files
 
-create()
-open()
-close()
-unlink()
+- create()
+- open()
+- close()
+- unlink()
 
-read()
-pread()
-write()
-pwrite()
-truncate()
-copy_file_range()
+- read()
+- pread()
+- write()
+- pwrite()
+- truncate()
+- copy_file_range()
 
-lseek()
+- lseek()
 
-flock()
-flush()
-fsync()
-fallocate()
+- flock()
+- flush()
+- fsync()
+- fallocate()
 
-link()
-symlink()
-rename()
+- link()
+- symlink()
+- rename()
 
 ### Directories
 
-mkdir()
-opendir()
-readdir()
-closedir()
-rmdir()
-fsyncdir()
+- mkdir()
+- opendir()
+- readdir()
+- closedir()
+- rmdir()
+- fsyncdir()
 
 ### Special
 
-ioctl()
-mknod()
-poll()
-statfs()
+- ioctl()
+- mknod()
+- poll()
+- statfs()
