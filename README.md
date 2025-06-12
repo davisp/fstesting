@@ -40,6 +40,7 @@ This is a small repo to demonstrate running various fstests in GitHub Actions.
 - flock()
 - flush()
 - fsync()
+- fdatasync()
 - fallocate()
 
 - link()
