@@ -6,7 +6,7 @@ fn urwx() -> libc::mode_t {
 fn mkdir() {
     let mut dir = crate::test_dir();
 
-    for mode in crate::enums::FILE_MODES {
+    for mode in crate::enums::FILE_PERMISSIONS {
         dir.push(format!("test_{mode}"));
 
         let err = unsafe { libc::mkdir(dir.c_str(), *mode) };

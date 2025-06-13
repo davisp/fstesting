@@ -52,7 +52,4 @@ This is a small repo to demonstrate running various fstests in GitHub Actions.
 
 ### Special
 
-- ioctl()
-- mknod()
-- poll()
 - statfs()

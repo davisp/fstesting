@@ -71,10 +71,10 @@ pub fn create_file(path: &mut TestPath, data: &[u8]) {
     };
     assert!(fd > 0);
 
-    let err = unsafe {
+    let len = unsafe {
         libc::write(fd, data.as_ptr() as *const libc::c_void, data.len())
     };
-    assert_eq!(err, 0);
+    assert_eq!(len as usize, data.len());
 
     let err = unsafe { libc::close(fd) };
     assert_eq!(err, 0);
@@ -82,6 +82,11 @@ pub fn create_file(path: &mut TestPath, data: &[u8]) {
 
 pub fn errno() -> i32 {
     std::io::Error::last_os_error().raw_os_error().unwrap_or(0)
+}
+
+pub fn perror(msg: &str) {
+    unsafe { libc::perror(msg.as_ptr() as *const libc::c_char) }
+    eprintln!();
 }
 
 fn rand_dir() -> String {
