@@ -26,7 +26,7 @@ fn chmod() {
     let stat = do_stat(&mut path);
     assert_eq!(stat.st_mode & 0x0FFF, libc::S_IRUSR);
 
-    for mode in crate::enums::FILE_MODES {
+    for mode in crate::enums::FILE_PERMISSIONS {
         let err = unsafe { libc::chmod(path.c_str(), *mode) };
         assert_eq!(err, 0);
 
@@ -183,9 +183,37 @@ fn xattrs() {
     let names = do_listxattr(&mut path);
     assert_eq!(names, &["foo"]);
 
-    // getxattr()
-    // removexattr()
-    // check do_listxattr is empty
+    let mut value = vec![0u8; 2048];
+    let len = unsafe {
+        libc::getxattr(
+            path.c_str(),
+            c"foo".as_ptr() as *const libc::c_char,
+            value.as_mut_ptr() as *mut libc::c_void,
+            value.len(),
+            0,
+            0,
+        )
+    };
+    assert!(len >= 0);
+
+    let value = value
+        .into_iter()
+        .take_while(|c| *c != 0)
+        .collect::<Vec<_>>();
+    let value = String::from_utf8_lossy(&value).to_string();
+    assert_eq!(value, "bar");
+
+    let err = unsafe {
+        libc::removexattr(
+            path.c_str(),
+            c"foo".as_ptr() as *const libc::c_char,
+            0,
+        )
+    };
+    assert_eq!(err, 0);
+
+    let names = do_listxattr(&mut path);
+    assert!(names.is_empty());
 }
 
 fn do_stat(path: &mut crate::TestPath) -> libc::stat {
