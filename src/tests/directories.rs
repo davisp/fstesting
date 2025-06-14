@@ -1,7 +1,3 @@
-fn urwx() -> libc::mode_t {
-    libc::S_IRUSR | libc::S_IWUSR | libc::S_IXUSR
-}
-
 #[test]
 fn mkdir() {
     let mut dir = crate::test_dir();
@@ -99,6 +95,11 @@ fn fsyncdir() {
     assert_eq!(err, 0);
 }
 
+#[cfg(not(target_os = "linux"))]
+#[test]
+#[ignore = "Not supported"]
+fn fdatasyncdir() {}
+
 #[cfg(target_os = "linux")]
 #[test]
 fn fdatasyncdir() {
@@ -110,4 +111,8 @@ fn fdatasyncdir() {
 
     let err = unsafe { libc::close(fd) };
     assert_eq!(err, 0);
+}
+
+fn urwx() -> libc::mode_t {
+    libc::S_IRUSR | libc::S_IWUSR | libc::S_IXUSR
 }

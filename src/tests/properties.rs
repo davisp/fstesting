@@ -1,5 +1,3 @@
-// - access()
-
 #[test]
 fn access() {
     let mut path = crate::test_dir();
@@ -23,14 +21,14 @@ fn chmod() {
     path.push("chmod.txt");
     crate::create_file(&mut path, &[]);
 
-    let stat = do_stat(&mut path);
+    let stat = crate::stat(&mut path);
     assert_eq!(stat.st_mode & 0x0FFF, libc::S_IRUSR);
 
     for mode in crate::enums::FILE_PERMISSIONS {
         let err = unsafe { libc::chmod(path.c_str(), *mode) };
         assert_eq!(err, 0);
 
-        let stat = do_stat(&mut path);
+        let stat = crate::stat(&mut path);
         assert_eq!(stat.st_mode & 0x0FFF, *mode);
     }
 }
@@ -52,7 +50,7 @@ fn utime() {
         libc::utimes(path.c_str(), &times[0])
     };
 
-    let stat = do_stat(&mut path);
+    let stat = crate::stat(&mut path);
 
     assert_eq!(stat.st_atime_nsec, 1000);
     assert_eq!(stat.st_mtime_nsec, 3000);
@@ -66,7 +64,7 @@ fn stat() {
     path.push("stat.txt");
     crate::create_file(&mut path, &[]);
 
-    let stat = do_stat(&mut path);
+    let stat = crate::stat(&mut path);
     assert!(stat.st_ino != 0);
     assert_eq!(stat.st_size, 0);
 }
@@ -87,8 +85,8 @@ fn link() {
     let err = unsafe { libc::access(dst.c_str(), libc::F_OK) };
     assert_eq!(err, 0);
 
-    let src_stat = do_stat(&mut src);
-    let dst_stat = do_stat(&mut dst);
+    let src_stat = crate::stat(&mut src);
+    let dst_stat = crate::stat(&mut dst);
 
     assert_eq!(src_stat.st_ino, dst_stat.st_ino);
     assert_eq!(src_stat.st_nlink, 2);
@@ -108,8 +106,8 @@ fn symlink_readlink() {
     let err = unsafe { libc::symlink(src.c_str(), dst.c_str()) };
     assert_eq!(err, 0);
 
-    let src_stat = do_stat(&mut src);
-    let dst_stat = do_lstat(&mut dst);
+    let src_stat = crate::stat(&mut src);
+    let dst_stat = crate::lstat(&mut dst);
 
     assert_ne!(src_stat.st_ino, dst_stat.st_ino);
 
@@ -165,7 +163,7 @@ fn xattrs() {
         unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
     assert_eq!(err, 0);
 
-    let names = do_listxattr(&mut path);
+    let names = crate::listxattr(&mut path);
     assert!(names.is_empty());
 
     let err = unsafe {
@@ -180,7 +178,7 @@ fn xattrs() {
     };
     assert_eq!(err, 0);
 
-    let names = do_listxattr(&mut path);
+    let names = crate::listxattr(&mut path);
     assert_eq!(names, &["foo"]);
 
     let mut value = vec![0u8; 2048];
@@ -212,48 +210,6 @@ fn xattrs() {
     };
     assert_eq!(err, 0);
 
-    let names = do_listxattr(&mut path);
+    let names = crate::listxattr(&mut path);
     assert!(names.is_empty());
-}
-
-fn do_stat(path: &mut crate::TestPath) -> libc::stat {
-    unsafe {
-        let mut stat: libc::stat = std::mem::zeroed();
-        let err = libc::stat(path.c_str(), &mut stat);
-        assert_eq!(err, 0);
-        stat
-    }
-}
-
-fn do_lstat(path: &mut crate::TestPath) -> libc::stat {
-    unsafe {
-        let mut stat: libc::stat = std::mem::zeroed();
-        let err = libc::lstat(path.c_str(), &mut stat);
-        assert_eq!(err, 0);
-        stat
-    }
-}
-
-fn do_listxattr(path: &mut crate::TestPath) -> Vec<String> {
-    let mut names = vec![0u8; 4096];
-    let len = unsafe {
-        libc::listxattr(
-            path.c_str(),
-            names.as_mut_ptr() as *mut libc::c_char,
-            4096,
-            0,
-        )
-    };
-    assert!(len >= 0);
-
-    let mut list = Vec::new();
-    let start: usize = 0;
-    for i in 0..(len as usize) {
-        if names[i] == 0 {
-            let n = String::from_utf8_lossy(&names[start..i]).to_string();
-            list.push(n);
-        }
-    }
-
-    list
 }
