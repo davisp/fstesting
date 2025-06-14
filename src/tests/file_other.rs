@@ -317,6 +317,12 @@ fn falloc_01() {
     };
 
     assert!(allocated >= 1024 * 1024);
+    let st = crate::stat(&mut path);
+    let stfs = crate::statfs(&mut path);
+    assert!(st.st_blocks * (stfs.f_bsize as i64) >= (1024 * 1024));
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
 }
 
 // FALLOC1: Create file of zeros
@@ -332,19 +338,154 @@ fn falloc_01() {
 fn falloc_01() {}
 
 // FALLOC2: Extend file with zeros
+#[cfg(target_os = "macos")]
+#[test]
+fn falloc_02() {
+    let mut path = crate::test_dir();
+    path.push("falloc_02.txt");
+
+    crate::create_file(&mut path, "Hello, World!".as_bytes());
+    let err =
+        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
+    assert_eq!(err, 0);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDWR | libc::O_CREAT) };
+    assert!(fd > 0);
+
+    let allocated = unsafe {
+        let mut fs: libc::fstore_t = std::mem::zeroed();
+        fs.fst_flags = libc::F_ALLOCATECONTIG | libc::F_ALLOCATEALL;
+        fs.fst_posmode = libc::F_PEOFPOSMODE;
+        fs.fst_offset = 0;
+        fs.fst_length = 512;
+        fs.fst_bytesalloc = 0;
+
+        let err = crate::fcntl_prealloc(fd, libc::F_PREALLOCATE, &mut fs);
+        assert_eq!(err, 0);
+
+        fs.fst_bytesalloc
+    };
+
+    assert!(allocated >= 512);
+    let st = crate::stat(&mut path);
+    let stfs = crate::statfs(&mut path);
+    assert!(st.st_blocks * (stfs.f_bsize as i64) >= 525);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
+#[cfg(target_os = "linux")]
+#[test]
+fn falloc_02() {
+    todo!();
+}
+
+#[cfg(not(any(target_os = "macos", target_os = "linux")))]
+#[test]
+#[ignore = "falloc not supoprted"]
+fn falloc_02() {}
+
+// Skipping these for now.
 // FALLOC3: Punch hole - region is filled with zeroes
 // FALLOC4: Collapse range - Remove middle of file
 // FALLOC5: Zero range
 // FALLOC6: Insert range
 
 // FCNTL1: F_DUPFD
+#[test]
+fn fcntl_01() {
+    let mut path = crate::test_dir();
+    path.push("fcntl_01.txt");
+
+    crate::create_file(&mut path, "Hello, World!".as_bytes());
+
+    let fd1 = unsafe { libc::open(path.c_str(), libc::O_RDONLY) };
+    assert!(fd1 > 0);
+
+    let fd2 = unsafe { libc::fcntl(fd1, libc::F_DUPFD) };
+    assert!(fd2 > fd1);
+
+    let err = unsafe { libc::close(fd1) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::close(fd2) };
+    assert_eq!(err, 0);
+}
+
 // FCNTL2: F_GETFD
+#[test]
+fn fcntl_02() {
+    let mut path = crate::test_dir();
+    path.push("fcntl_02.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let fd =
+        unsafe { libc::open(path.c_str(), libc::O_RDONLY | libc::O_CLOEXEC) };
+    assert!(fd > 0);
+
+    let flags = unsafe { crate::fcntl_int(fd, libc::F_GETFD, 0) };
+    assert_eq!(flags & libc::FD_CLOEXEC, libc::FD_CLOEXEC);
+}
+
 // FCNTL3: F_SETFD
+#[test]
+fn fcntl_03() {
+    let mut path = crate::test_dir();
+    path.push("fcntl_02.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDONLY) };
+    assert!(fd > 0);
+
+    let flags = unsafe { crate::fcntl_int(fd, libc::F_GETFD, 0) };
+    assert_ne!(flags & libc::FD_CLOEXEC, libc::FD_CLOEXEC);
+
+    let err = unsafe { crate::fcntl_int(fd, libc::F_SETFD, libc::FD_CLOEXEC) };
+    assert_eq!(err, 0);
+
+    let flags = unsafe { crate::fcntl_int(fd, libc::F_GETFD, 0) };
+    assert_eq!(flags & libc::FD_CLOEXEC, libc::FD_CLOEXEC);
+}
+
 // FCNTL4: F_GETFL
+#[test]
+fn fcntl_04() {
+    let mut path = crate::test_dir();
+    path.push("fcntl_04.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let fd =
+        unsafe { libc::open(path.c_str(), libc::O_RDONLY | libc::O_NONBLOCK) };
+    assert!(fd > 0);
+
+    let flags = unsafe { crate::fcntl_int(fd, libc::F_GETFL, 0) };
+    assert_eq!(flags & libc::O_NONBLOCK, libc::O_NONBLOCK);
+}
+
 // FCNTL5: F_SETFL
-// FCNTL6: F_SETLK
-// FCNTL7: F_SETLKW
-// FCNTL8: F_GETLK
+#[test]
+fn fcntl_05() {
+    let mut path = crate::test_dir();
+    path.push("fcntl_05.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDONLY) };
+    assert!(fd > 0);
+
+    let flags = unsafe { crate::fcntl_int(fd, libc::F_GETFL, 0) };
+    assert_ne!(flags & libc::O_NONBLOCK, libc::O_NONBLOCK);
+
+    let err = unsafe { crate::fcntl_int(fd, libc::F_SETFL, libc::O_NONBLOCK) };
+    assert_eq!(err, 0);
+
+    let flags = unsafe { crate::fcntl_int(fd, libc::F_GETFL, 0) };
+    assert_eq!(flags & libc::O_NONBLOCK, libc::O_NONBLOCK);
+}
 
 // FLOCK1: LOCK_SH
 // FLOCK2: LOCK_EX

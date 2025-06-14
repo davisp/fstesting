@@ -53,3 +53,12 @@ This is a small repo to demonstrate running various fstests in GitHub Actions.
 ### Special
 
 - statfs()
+
+### ToDo
+
+- error opening directory without execute permission
+- dangling symbolic link
+- open through symbolic link
+- O_APPEND + truncate + pread
+- O_APPEND + pwrite - check lseek behavior
+- observe writes through separate fds
