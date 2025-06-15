@@ -106,7 +106,8 @@ fn fdatasyncdir() {
     assert_eq!(crate::errno(), libc::EBADF);
 
     let err = unsafe { libc::close(fd) };
-    assert_eq!(err, 0);
+    assert_eq!(err, -1);
+    assert_eq!(crate::errno(), libc::EBADF);
 }
 
 fn urwx() -> libc::mode_t {
