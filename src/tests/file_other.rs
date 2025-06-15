@@ -915,12 +915,14 @@ fn fadvise_01() {
     let mut path = crate::test_dir();
     path.push("fadvise_01.txt");
 
-    crate::create_file(&mut path, &[]);
+    let data = vec![0u8; 1024];
+    crate::create_file(&mut path, &data);
 
     let fd = unsafe { libc::open(path.c_str(), libc::O_RDONLY) };
     assert!(fd > 0);
 
-    let err = unsafe { libc::posix_fadvise(fd, libc::POSIX_FADV_NORMAL) };
+    let err =
+        unsafe { libc::posix_fadvise(fd, 0, 1024, libc::POSIX_FADV_NORMAL) };
     assert_eq!(err, 0);
 
     let err = unsafe { libc::close(fd) };
@@ -939,12 +941,15 @@ fn fadvise_02() {
     let mut path = crate::test_dir();
     path.push("fadvise_02.txt");
 
-    crate::create_file(&mut path, &[]);
+    let data = vec![0u8; 1024];
+    crate::create_file(&mut path, &data);
 
     let fd = unsafe { libc::open(path.c_str(), libc::O_RDONLY) };
     assert!(fd > 0);
 
-    let err = unsafe { libc::posix_fadvise(fd, libc::POSIX_FADV_SEQUENTIAL) };
+    let err = unsafe {
+        libc::posix_fadvise(fd, 0, 1024, libc::POSIX_FADV_SEQUENTIAL)
+    };
     assert_eq!(err, 0);
 
     let err = unsafe { libc::close(fd) };
@@ -963,12 +968,14 @@ fn fadvise_03() {
     let mut path = crate::test_dir();
     path.push("fadvise_03.txt");
 
-    crate::create_file(&mut path, &[]);
+    let data = vec![0u8; 1024];
+    crate::create_file(&mut path, &data);
 
     let fd = unsafe { libc::open(path.c_str(), libc::O_RDONLY) };
     assert!(fd > 0);
 
-    let err = unsafe { libc::posix_fadvise(fd, libc::POSIX_FADV_RANDOM) };
+    let err =
+        unsafe { libc::posix_fadvise(fd, 0, 1024, libc::POSIX_FADV_RANDOM) };
     assert_eq!(err, 0);
 
     let err = unsafe { libc::close(fd) };
@@ -987,12 +994,14 @@ fn fadvise_04() {
     let mut path = crate::test_dir();
     path.push("fadvise_04.txt");
 
-    crate::create_file(&mut path, &[]);
+    let data = vec![0u8; 1024];
+    crate::create_file(&mut path, &data);
 
     let fd = unsafe { libc::open(path.c_str(), libc::O_RDONLY) };
     assert!(fd > 0);
 
-    let err = unsafe { libc::posix_fadvise(fd, libc::POSIX_FADV_NOREUSE) };
+    let err =
+        unsafe { libc::posix_fadvise(fd, 0, 1024, libc::POSIX_FADV_NOREUSE) };
     assert_eq!(err, 0);
 
     let err = unsafe { libc::close(fd) };
@@ -1011,12 +1020,14 @@ fn fadvise_05() {
     let mut path = crate::test_dir();
     path.push("fadvise_05.txt");
 
-    crate::create_file(&mut path, &[]);
+    let data = vec![0u8; 1024];
+    crate::create_file(&mut path, &data);
 
     let fd = unsafe { libc::open(path.c_str(), libc::O_RDONLY) };
     assert!(fd > 0);
 
-    let err = unsafe { libc::posix_fadvise(fd, libc::POSIX_FADV_WILLNEED) };
+    let err =
+        unsafe { libc::posix_fadvise(fd, 0, 1024, libc::POSIX_FADV_WILLNEED) };
     assert_eq!(err, 0);
 
     let err = unsafe { libc::close(fd) };
@@ -1035,12 +1046,14 @@ fn fadvise_06() {
     let mut path = crate::test_dir();
     path.push("fadvise_06.txt");
 
-    crate::create_file(&mut path, &[]);
+    let data = vec![0u8; 1024];
+    crate::create_file(&mut path, &data);
 
     let fd = unsafe { libc::open(path.c_str(), libc::O_RDONLY) };
     assert!(fd > 0);
 
-    let err = unsafe { libc::posix_fadvise(fd, libc::POSIX_FADV_WILLNEED) };
+    let err =
+        unsafe { libc::posix_fadvise(fd, 0, 1024, libc::POSIX_FADV_WILLNEED) };
     assert_eq!(err, 0);
 
     let err = unsafe { libc::close(fd) };
@@ -1090,10 +1103,10 @@ fn cprange_02() {}
 #[test]
 fn cprange_02() {
     let mut path_src = crate::test_dir();
-    let path_dst = path_src.clone();
+    let mut path_dst = path_src.clone();
 
     path_src.push("cprange_02_src.txt");
-    path_dst.push("cprange_03_dst.txt");
+    path_dst.push("cprange_02_dst.txt");
 
     let data = vec![0u8; 4096];
     crate::create_file(&mut path_src, &data);

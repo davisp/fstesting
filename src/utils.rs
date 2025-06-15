@@ -87,6 +87,7 @@ pub fn statfs(path: &mut TestPath) -> libc::statfs {
     }
 }
 
+#[cfg(target_os = "macos")]
 pub fn listxattr(path: &mut TestPath) -> Vec<String> {
     let mut names = vec![0u8; 4096];
     let len = unsafe {

@@ -153,6 +153,7 @@ fn rename() {
     assert_eq!(err, 0);
 }
 
+#[cfg(target_os = "macos")]
 #[test]
 fn xattrs() {
     let mut path = crate::test_dir();
