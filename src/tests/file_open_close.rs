@@ -211,6 +211,42 @@ open_creat! {
     open_creat_36: (libc::O_RDWR, libc::O_NOFOLLOW_ANY, true, 0),
 }
 
+#[cfg(target_os = "linux")]
+pub mod extended_options {
+    super::open_creat! {
+        open_creat_37: (libc::O_RDONLY, libc::O_ASYNC, true, 0),
+        open_creat_38: (libc::O_RDONLY, libc::O_DIRECT, true, 0),
+        open_creat_39: (libc::O_RDONLY, libc::O_DSYNC, true, 0),
+        open_creat_40: (libc::O_RDONLY, libc::O_LARGEFILE, true, 0),
+        open_creat_41: (libc::O_RDONLY, libc::O_NOATIME, true, 0),
+        open_creat_42: (libc::O_RDONLY, libc::O_NOCTTY, true, 0),
+        open_creat_43: (libc::O_RDONLY, libc::O_NDELAY, true, 0),
+        open_creat_44: (libc::O_RDONLY, libc::O_PATH, true, 0),
+        open_creat_45: (libc::O_RDONLY, libc::O_SYNC, true, 0),
+        open_creat_46: (libc::O_RDONLY, libc::O_TMPFILE, true, 0),
+        open_creat_47: (libc::O_WRONLY, libc::O_ASYNC, true, 0),
+        open_creat_48: (libc::O_WRONLY, libc::O_DIRECT, true, 0),
+        open_creat_49: (libc::O_WRONLY, libc::O_DSYNC, true, 0),
+        open_creat_50: (libc::O_WRONLY, libc::O_LARGEFILE, true, 0),
+        open_creat_51: (libc::O_WRONLY, libc::O_NOATIME, true, 0),
+        open_creat_52: (libc::O_WRONLY, libc::O_NOCTTY, true, 0),
+        open_creat_53: (libc::O_WRONLY, libc::O_NDELAY, true, 0),
+        open_creat_54: (libc::O_WRONLY, libc::O_PATH, true, 0),
+        open_creat_55: (libc::O_WRONLY, libc::O_SYNC, true, 0),
+        open_creat_56: (libc::O_WRONLY, libc::O_TMPFILE, true, 0),
+        open_creat_57: (libc::O_RDRW, libc::O_ASYNC, true, 0),
+        open_creat_58: (libc::O_RDRW, libc::O_DIRECT, true, 0),
+        open_creat_59: (libc::O_RDRW, libc::O_DSYNC, true, 0),
+        open_creat_60: (libc::O_RDRW, libc::O_LARGEFILE, true, 0),
+        open_creat_61: (libc::O_RDRW, libc::O_NOATIME, true, 0),
+        open_creat_62: (libc::O_RDRW, libc::O_NOCTTY, true, 0),
+        open_creat_63: (libc::O_RDRW, libc::O_NDELAY, true, 0),
+        open_creat_64: (libc::O_RDRW, libc::O_PATH, true, 0),
+        open_creat_65: (libc::O_RDRW, libc::O_SYNC, true, 0),
+        open_creat_66: (libc::O_RDRW, libc::O_TMPFILE, true, 0),
+    }
+}
+
 open_exist_ro! {
     open_exist_ro_01: (libc::O_RDONLY, libc::O_NONBLOCK, true, 0),
     open_exist_ro_02: (libc::O_RDONLY, libc::O_APPEND, true, 0),
@@ -250,6 +286,42 @@ open_exist_ro! {
     open_exist_ro_36: (libc::O_RDWR, libc::O_NOFOLLOW_ANY, false, libc::EACCES),
 }
 
+#[cfg(target_os = "linux")]
+pub mod extended_options {
+    super::open_exist_ro! {
+        open_exist_ro_37: (libc::O_RDONLY, libc::O_ASYNC, true, 0),
+        open_exist_ro_38: (libc::O_RDONLY, libc::O_DIRECT, true, 0),
+        open_exist_ro_39: (libc::O_RDONLY, libc::O_DSYNC, true, 0),
+        open_exist_ro_40: (libc::O_RDONLY, libc::O_LARGEFILE, true, 0),
+        open_exist_ro_41: (libc::O_RDONLY, libc::O_NOATIME, true, 0),
+        open_exist_ro_42: (libc::O_RDONLY, libc::O_NOCTTY, true, 0),
+        open_exist_ro_43: (libc::O_RDONLY, libc::O_NDELAY, true, 0),
+        open_exist_ro_44: (libc::O_RDONLY, libc::O_PATH, true, 0),
+        open_exist_ro_45: (libc::O_RDONLY, libc::O_SYNC, true, 0),
+        open_exist_ro_46: (libc::O_RDONLY, libc::O_TMPFILE, true, 0),
+        open_exist_ro_47: (libc::O_WRONLY, libc::O_ASYNC, true, 0),
+        open_exist_ro_48: (libc::O_WRONLY, libc::O_DIRECT, true, 0),
+        open_exist_ro_49: (libc::O_WRONLY, libc::O_DSYNC, true, 0),
+        open_exist_ro_50: (libc::O_WRONLY, libc::O_LARGEFILE, true, 0),
+        open_exist_ro_51: (libc::O_WRONLY, libc::O_NOATIME, true, 0),
+        open_exist_ro_52: (libc::O_WRONLY, libc::O_NOCTTY, true, 0),
+        open_exist_ro_53: (libc::O_WRONLY, libc::O_NDELAY, true, 0),
+        open_exist_ro_54: (libc::O_WRONLY, libc::O_PATH, true, 0),
+        open_exist_ro_55: (libc::O_WRONLY, libc::O_SYNC, true, 0),
+        open_exist_ro_56: (libc::O_WRONLY, libc::O_TMPFILE, true, 0),
+        open_exist_ro_57: (libc::O_RDRW, libc::O_ASYNC, true, 0),
+        open_exist_ro_58: (libc::O_RDRW, libc::O_DIRECT, true, 0),
+        open_exist_ro_59: (libc::O_RDRW, libc::O_DSYNC, true, 0),
+        open_exist_ro_60: (libc::O_RDRW, libc::O_LARGEFILE, true, 0),
+        open_exist_ro_61: (libc::O_RDRW, libc::O_NOATIME, true, 0),
+        open_exist_ro_62: (libc::O_RDRW, libc::O_NOCTTY, true, 0),
+        open_exist_ro_63: (libc::O_RDRW, libc::O_NDELAY, true, 0),
+        open_exist_ro_64: (libc::O_RDRW, libc::O_PATH, true, 0),
+        open_exist_ro_65: (libc::O_RDRW, libc::O_SYNC, true, 0),
+        open_exist_ro_66: (libc::O_RDRW, libc::O_TMPFILE, true, 0),
+    }
+}
+
 open_exist_rw! {
     open_exist_rw_01: (libc::O_RDONLY, libc::O_NONBLOCK, true, 0),
     open_exist_rw_02: (libc::O_RDONLY, libc::O_APPEND, true, 0),
@@ -287,4 +359,40 @@ open_exist_rw! {
     open_exist_rw_34: (libc::O_RDWR, libc::O_EVTONLY, true, 0),
     open_exist_rw_35: (libc::O_RDWR, libc::O_CLOEXEC, true, 0),
     open_exist_rw_36: (libc::O_RDWR, libc::O_NOFOLLOW_ANY, true, 0),
+}
+
+#[cfg(target_os = "linux")]
+pub mod extended_options {
+    super::open_exist_rw! {
+        open_exist_rw_37: (libc::O_RDONLY, libc::O_ASYNC, true, 0),
+        open_exist_rw_38: (libc::O_RDONLY, libc::O_DIRECT, true, 0),
+        open_exist_rw_39: (libc::O_RDONLY, libc::O_DSYNC, true, 0),
+        open_exist_rw_40: (libc::O_RDONLY, libc::O_LARGEFILE, true, 0),
+        open_exist_rw_41: (libc::O_RDONLY, libc::O_NOATIME, true, 0),
+        open_exist_rw_42: (libc::O_RDONLY, libc::O_NOCTTY, true, 0),
+        open_exist_rw_43: (libc::O_RDONLY, libc::O_NDELAY, true, 0),
+        open_exist_rw_44: (libc::O_RDONLY, libc::O_PATH, true, 0),
+        open_exist_rw_45: (libc::O_RDONLY, libc::O_SYNC, true, 0),
+        open_exist_rw_46: (libc::O_RDONLY, libc::O_TMPFILE, true, 0),
+        open_exist_rw_47: (libc::O_WRONLY, libc::O_ASYNC, true, 0),
+        open_exist_rw_48: (libc::O_WRONLY, libc::O_DIRECT, true, 0),
+        open_exist_rw_49: (libc::O_WRONLY, libc::O_DSYNC, true, 0),
+        open_exist_rw_50: (libc::O_WRONLY, libc::O_LARGEFILE, true, 0),
+        open_exist_rw_51: (libc::O_WRONLY, libc::O_NOATIME, true, 0),
+        open_exist_rw_52: (libc::O_WRONLY, libc::O_NOCTTY, true, 0),
+        open_exist_rw_53: (libc::O_WRONLY, libc::O_NDELAY, true, 0),
+        open_exist_rw_54: (libc::O_WRONLY, libc::O_PATH, true, 0),
+        open_exist_rw_55: (libc::O_WRONLY, libc::O_SYNC, true, 0),
+        open_exist_rw_56: (libc::O_WRONLY, libc::O_TMPFILE, true, 0),
+        open_exist_rw_57: (libc::O_RDRW, libc::O_ASYNC, true, 0),
+        open_exist_rw_58: (libc::O_RDRW, libc::O_DIRECT, true, 0),
+        open_exist_rw_59: (libc::O_RDRW, libc::O_DSYNC, true, 0),
+        open_exist_rw_60: (libc::O_RDRW, libc::O_LARGEFILE, true, 0),
+        open_exist_rw_61: (libc::O_RDRW, libc::O_NOATIME, true, 0),
+        open_exist_rw_62: (libc::O_RDRW, libc::O_NOCTTY, true, 0),
+        open_exist_rw_63: (libc::O_RDRW, libc::O_NDELAY, true, 0),
+        open_exist_rw_64: (libc::O_RDRW, libc::O_PATH, true, 0),
+        open_exist_rw_65: (libc::O_RDRW, libc::O_SYNC, true, 0),
+        open_exist_rw_66: (libc::O_RDRW, libc::O_TMPFILE, true, 0),
+    }
 }
