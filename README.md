@@ -62,3 +62,4 @@ This is a small repo to demonstrate running various fstests in GitHub Actions.
 - O_APPEND + truncate + pread
 - O_APPEND + pwrite - check lseek behavior
 - observe writes through separate fds
+- O_CREAT | O_EXCL

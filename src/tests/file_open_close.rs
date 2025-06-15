@@ -136,6 +136,42 @@ open_ne! {
     open_ne_36: (libc::O_RDWR, libc::O_NOFOLLOW_ANY, false, libc::ENOENT),
 }
 
+#[cfg(target_os = "linux")]
+pub mod extended_options {
+    super::open_ne! {
+        open_ne_37: (libc::O_RDONLY, libc::O_ASYNC, true, 0),
+        open_ne_38: (libc::O_RDONLY, libc::O_DIRECT, true, 0),
+        open_ne_39: (libc::O_RDONLY, libc::O_DSYNC, true, 0),
+        open_ne_40: (libc::O_RDONLY, libc::O_LARGEFILE, true, 0),
+        open_ne_41: (libc::O_RDONLY, libc::O_NOATIME, true, 0),
+        open_ne_42: (libc::O_RDONLY, libc::O_NOCTTY, true, 0),
+        open_ne_43: (libc::O_RDONLY, libc::O_NDELAY, true, 0),
+        open_ne_44: (libc::O_RDONLY, libc::O_PATH, true, 0),
+        open_ne_45: (libc::O_RDONLY, libc::O_SYNC, true, 0),
+        open_ne_46: (libc::O_RDONLY, libc::O_TMPFILE, true, 0),
+        open_ne_47: (libc::O_WRONLY, libc::O_ASYNC, true, 0),
+        open_ne_48: (libc::O_WRONLY, libc::O_DIRECT, true, 0),
+        open_ne_49: (libc::O_WRONLY, libc::O_DSYNC, true, 0),
+        open_ne_50: (libc::O_WRONLY, libc::O_LARGEFILE, true, 0),
+        open_ne_51: (libc::O_WRONLY, libc::O_NOATIME, true, 0),
+        open_ne_52: (libc::O_WRONLY, libc::O_NOCTTY, true, 0),
+        open_ne_53: (libc::O_WRONLY, libc::O_NDELAY, true, 0),
+        open_ne_54: (libc::O_WRONLY, libc::O_PATH, true, 0),
+        open_ne_55: (libc::O_WRONLY, libc::O_SYNC, true, 0),
+        open_ne_56: (libc::O_WRONLY, libc::O_TMPFILE, true, 0),
+        open_ne_57: (libc::O_RDRW, libc::O_ASYNC, true, 0),
+        open_ne_58: (libc::O_RDRW, libc::O_DIRECT, true, 0),
+        open_ne_59: (libc::O_RDRW, libc::O_DSYNC, true, 0),
+        open_ne_60: (libc::O_RDRW, libc::O_LARGEFILE, true, 0),
+        open_ne_61: (libc::O_RDRW, libc::O_NOATIME, true, 0),
+        open_ne_62: (libc::O_RDRW, libc::O_NOCTTY, true, 0),
+        open_ne_63: (libc::O_RDRW, libc::O_NDELAY, true, 0),
+        open_ne_64: (libc::O_RDRW, libc::O_PATH, true, 0),
+        open_ne_65: (libc::O_RDRW, libc::O_SYNC, true, 0),
+        open_ne_66: (libc::O_RDRW, libc::O_TMPFILE, true, 0),
+    }
+}
+
 open_creat! {
     open_creat_01: (libc::O_RDONLY, libc::O_NONBLOCK, true, 0),
     open_creat_02: (libc::O_RDONLY, libc::O_APPEND, true, 0),

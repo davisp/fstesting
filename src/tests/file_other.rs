@@ -1,6 +1,8 @@
-/// UL1: Simple unlink / file deletion
+use std::sync::mpsc;
+
+/// UNLINK1: Simple unlink / file deletion
 #[test]
-fn ul_01() {
+fn unlink_01() {
     let mut path = crate::test_dir();
     path.push("unlink.txt");
     crate::create_file(&mut path, &[]);
@@ -16,9 +18,9 @@ fn ul_01() {
     assert_eq!(crate::errno(), libc::ENOENT);
 }
 
-// UL2: One hard link keeps file alive
+// UNLINK2: One hard link keeps file alive
 #[test]
-fn ul_02() {
+fn unlink_02() {
     let mut path_src = crate::test_dir();
     let mut path_dst = path_src.clone();
 
@@ -51,9 +53,9 @@ fn ul_02() {
     assert_eq!(err, -1);
 }
 
-// UL3: Unlink on symlink target leaves symlink dangling
+// UNLINK3: Unlink on symlink target leaves symlink dangling
 #[test]
-fn ul_03() {
+fn unlink_03() {
     let mut path_src = crate::test_dir();
     let mut path_dst = path_src.clone();
 
@@ -82,9 +84,9 @@ fn ul_03() {
     assert_eq!(stat.st_nlink, 1);
 }
 
-// UL4: Unlink does not close/affect an open fd
+// UNLINK4: Unlink does not close/affect an open fd
 #[test]
-fn ul_04() {
+fn unlink_04() {
     let mut path = crate::test_dir();
     path.push("ul_04.txt");
 
@@ -137,9 +139,9 @@ fn ul_04() {
     assert_eq!(crate::errno(), libc::ENOENT);
 }
 
-// TR1: Simple truncate to empty file
+// TRUNCATE1: Simple truncate to empty file
 #[test]
-fn tr_01() {
+fn truncate_01() {
     let mut path = crate::test_dir();
     path.push("tr_01.txt");
 
@@ -159,9 +161,9 @@ fn tr_01() {
     assert_eq!(crate::read_file(&mut path), "");
 }
 
-// TR2: Truncate to extent fill
+// TRUNCATE2: Truncate to extent fill
 #[test]
-fn tr_02() {
+fn truncate_02() {
     let mut path = crate::test_dir();
     path.push("tr_02.txt");
 
@@ -171,9 +173,9 @@ fn tr_02() {
     assert_eq!(err, 0);
 }
 
-// TR3: Truncate on read-only file
+// TRUMCATE3: Truncate on read-only file
 #[test]
-fn tr_03() {
+fn truncate_03() {
     let mut path = crate::test_dir();
     path.push("tr_03.txt");
 
@@ -184,9 +186,9 @@ fn tr_03() {
     assert_eq!(crate::errno(), libc::EACCES);
 }
 
-// SQ1 (lseek): Simple move for reads
+// SEEK1: Simple move for reads
 #[test]
-fn sq_01() {
+fn seek_01() {
     let mut path = crate::test_dir();
     path.push("sq_01.txt");
 
@@ -211,9 +213,9 @@ fn sq_01() {
     assert_eq!(err, 0);
 }
 
-// SQ2: Error moving before 0
+// SEEK2: Error moving before 0
 #[test]
-fn sq_02() {
+fn seek_02() {
     let mut path = crate::test_dir();
     path.push("sq_02.txt");
 
@@ -230,9 +232,9 @@ fn sq_02() {
     assert_eq!(err, 0);
 }
 
-// SQ3: seek beyond eof and write extends file
+// SEEK3: seek beyond eof and write extends file
 #[test]
-fn sq_03() {
+fn seek_03() {
     let mut path = crate::test_dir();
     path.push("sq_03.txt");
 
@@ -260,9 +262,9 @@ fn sq_03() {
     assert_eq!(err, 0);
 }
 
-// SQ4: Show seek beyond eof does not allocate space
+// SEEK4: Show seek beyond eof does not allocate space
 #[test]
-fn sq_04() {
+fn seek_04() {
     let mut path = crate::test_dir();
     path.push("sq_04.txt");
 
@@ -427,6 +429,9 @@ fn fcntl_02() {
 
     let flags = unsafe { crate::fcntl_int(fd, libc::F_GETFD, 0) };
     assert_eq!(flags & libc::FD_CLOEXEC, libc::FD_CLOEXEC);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
 }
 
 // FCNTL3: F_SETFD
@@ -448,6 +453,9 @@ fn fcntl_03() {
 
     let flags = unsafe { crate::fcntl_int(fd, libc::F_GETFD, 0) };
     assert_eq!(flags & libc::FD_CLOEXEC, libc::FD_CLOEXEC);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
 }
 
 // FCNTL4: F_GETFL
@@ -464,6 +472,9 @@ fn fcntl_04() {
 
     let flags = unsafe { crate::fcntl_int(fd, libc::F_GETFL, 0) };
     assert_eq!(flags & libc::O_NONBLOCK, libc::O_NONBLOCK);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
 }
 
 // FCNTL5: F_SETFL
@@ -485,30 +496,639 @@ fn fcntl_05() {
 
     let flags = unsafe { crate::fcntl_int(fd, libc::F_GETFL, 0) };
     assert_eq!(flags & libc::O_NONBLOCK, libc::O_NONBLOCK);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
 }
 
 // FLOCK1: LOCK_SH
+#[test]
+fn flock_01() {
+    let mut path = crate::test_dir();
+    path.push("flock_01.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let err =
+        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
+    assert_eq!(err, 0);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDWR) };
+    assert!(fd > 0);
+
+    let err = unsafe { libc::flock(fd, libc::LOCK_SH) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::flock(fd, libc::LOCK_UN) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
 // FLOCK2: LOCK_EX
-// FLOCK4: LOCK_SH with existing LOCK_EX
-// FLOCK5: LOCK_EX with existing LOCK_SH
-// FLOCK6: LOCK_EX with existing LOCK_EX
+#[test]
+fn flock_02() {
+    let mut path = crate::test_dir();
+    path.push("flock_02.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let err =
+        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
+    assert_eq!(err, 0);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDWR) };
+    assert!(fd > 0);
+
+    let err = unsafe { libc::flock(fd, libc::LOCK_EX) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::flock(fd, libc::LOCK_UN) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
+// FLOCK3: LOCK_SH with existing LOCK_EX
+#[test]
+fn flock_03() {
+    let mut path = crate::test_dir();
+    path.push("flock_03.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let err =
+        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
+    assert_eq!(err, 0);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDWR) };
+    assert!(fd > 0);
+
+    let err = unsafe { libc::flock(fd, libc::LOCK_EX) };
+    assert_eq!(err, 0);
+
+    let mut thr_path = path.clone();
+    let t = std::thread::spawn(move || {
+        let thr_fd = unsafe { libc::open(thr_path.c_str(), libc::O_RDWR) };
+        assert!(thr_fd > 0);
+
+        let err = unsafe { libc::flock(thr_fd, libc::LOCK_SH | libc::LOCK_NB) };
+        assert_eq!(err, -1);
+        assert_eq!(crate::errno(), libc::EWOULDBLOCK);
+    });
+
+    t.join().unwrap();
+
+    let err = unsafe { libc::flock(fd, libc::LOCK_UN) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
+// FLOCK4: LOCK_EX with existing LOCK_SH
+#[test]
+fn flock_04() {
+    let mut path = crate::test_dir();
+    path.push("flock_04.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let err =
+        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
+    assert_eq!(err, 0);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDWR) };
+    assert!(fd > 0);
+
+    let err = unsafe { libc::flock(fd, libc::LOCK_SH) };
+    assert_eq!(err, 0);
+
+    let mut thr_path = path.clone();
+    let t = std::thread::spawn(move || {
+        let thr_fd = unsafe { libc::open(thr_path.c_str(), libc::O_RDWR) };
+        assert!(thr_fd > 0);
+
+        let err = unsafe { libc::flock(thr_fd, libc::LOCK_EX | libc::LOCK_NB) };
+        assert_eq!(err, -1);
+        assert_eq!(crate::errno(), libc::EWOULDBLOCK);
+
+        let err = unsafe { libc::close(thr_fd) };
+        assert_eq!(err, 0);
+    });
+
+    t.join().unwrap();
+
+    let err = unsafe { libc::flock(fd, libc::LOCK_UN) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
+// FLOCK5: LOCK_EX with existing LOCK_EX
+#[test]
+fn flock_05() {
+    let mut path = crate::test_dir();
+    path.push("flock_05.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let err =
+        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
+    assert_eq!(err, 0);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDWR) };
+    assert!(fd > 0);
+
+    let err = unsafe { libc::flock(fd, libc::LOCK_EX) };
+    assert_eq!(err, 0);
+
+    let mut thr_path = path.clone();
+    let t = std::thread::spawn(move || {
+        let thr_fd = unsafe { libc::open(thr_path.c_str(), libc::O_RDWR) };
+        assert!(thr_fd > 0);
+
+        let err = unsafe { libc::flock(thr_fd, libc::LOCK_EX | libc::LOCK_NB) };
+        assert_eq!(err, -1);
+        assert_eq!(crate::errno(), libc::EWOULDBLOCK);
+
+        let err = unsafe { libc::close(thr_fd) };
+        assert_eq!(err, 0);
+    });
+
+    t.join().unwrap();
+
+    let err = unsafe { libc::flock(fd, libc::LOCK_UN) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
+// FLOCK6: LOCK_SH to LOCK_EX
+#[test]
+fn flock_06() {
+    let mut path = crate::test_dir();
+    path.push("flock_06.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let err =
+        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
+    assert_eq!(err, 0);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDWR) };
+    assert!(fd > 0);
+
+    let err = unsafe { libc::flock(fd, libc::LOCK_SH) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::flock(fd, libc::LOCK_EX) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::flock(fd, libc::LOCK_UN) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
+// FLOCK7: LOCK_EX to LOCK_SH
+#[test]
+fn flock_07() {
+    let mut path = crate::test_dir();
+    path.push("flock_07.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let err =
+        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
+    assert_eq!(err, 0);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDWR) };
+    assert!(fd > 0);
+
+    let err = unsafe { libc::flock(fd, libc::LOCK_EX) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::flock(fd, libc::LOCK_SH) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::flock(fd, libc::LOCK_UN) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
 
 // FSYNC1: empty file
-// FSYNC2: after write
-// FSYNC3: every MiB writing multi-MiB file
-// FSYNC4: separate thread every 100ms while main thread writes.
+#[test]
+fn fsync_01() {
+    let mut path = crate::test_dir();
+    path.push("fsync_01.txt");
 
-// FDATASYNC1: empty file
-// FDATASYNC2: after write
-// FDATASYNC3: every MiB writing multi-MiB file
-// FDATASYNC4: separate thread every 100ms while main thread writes
+    crate::create_file(&mut path, &[]);
+
+    let err =
+        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
+    assert_eq!(err, 0);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDWR) };
+    assert!(fd > 0);
+
+    let err = unsafe { libc::fsync(fd) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
+// FSYNC2: after write
+#[test]
+fn fsync_02() {
+    let mut path = crate::test_dir();
+    path.push("fsync_02.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let err =
+        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
+    assert_eq!(err, 0);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDWR) };
+    assert!(fd > 0);
+
+    let bytes = vec![0u8; 1024];
+    let len = unsafe {
+        libc::write(fd, bytes.as_ptr() as *const libc::c_void, bytes.len())
+    };
+    assert_eq!(len, 1024);
+
+    let err = unsafe { libc::fsync(fd) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
+// FSYNC3: every MiB writing multi-MiB file
+#[test]
+fn fsync_03() {
+    let mut path = crate::test_dir();
+    path.push("fsync_03.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let err =
+        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
+    assert_eq!(err, 0);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDWR) };
+    assert!(fd > 0);
+
+    let bytes = vec![127u8; 1024 * 1024];
+    for _ in 0..15 {
+        let len = unsafe {
+            libc::write(fd, bytes.as_ptr() as *const libc::c_void, bytes.len())
+        };
+        assert_eq!(len, 1024 * 1024);
+
+        let err = unsafe { libc::fsync(fd) };
+        assert_eq!(err, 0);
+    }
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
+// FSYNC4: fsync from separate thread
+#[test]
+fn fsync_04() {
+    let mut path = crate::test_dir();
+    path.push("fsync_04.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let err =
+        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
+    assert_eq!(err, 0);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDWR) };
+    assert!(fd > 0);
+
+    let (tx, rx) = mpsc::channel();
+
+    let mut thr_path = path.clone();
+    let t = std::thread::spawn(move || {
+        let thr_fd = unsafe { libc::open(thr_path.c_str(), libc::O_RDWR) };
+        assert!(thr_fd > 0);
+
+        loop {
+            let do_fsync = rx.recv().unwrap();
+            if do_fsync {
+                let err = unsafe { libc::fsync(thr_fd) };
+                assert_eq!(err, 0);
+            } else {
+                break;
+            }
+        }
+
+        let err = unsafe { libc::close(thr_fd) };
+        assert_eq!(err, 0);
+    });
+
+    let bytes = vec![127u8; 1024 * 1024];
+    for _ in 0..15 {
+        let len = unsafe {
+            libc::write(fd, bytes.as_ptr() as *const libc::c_void, bytes.len())
+        };
+        assert_eq!(len, 1024 * 1024);
+
+        tx.send(true).unwrap();
+    }
+
+    tx.send(false).unwrap();
+    t.join().unwrap();
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
+// FSYNC5: fsync on read-only file
+#[test]
+fn fsync_05() {
+    let mut path = crate::test_dir();
+    path.push("fsync_01.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDONLY) };
+    assert!(fd > 0);
+
+    let err = unsafe { libc::fsync(fd) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
+// FSYNC6: macOS specific fcntl for stronger durability guarantees
+#[cfg(target_os = "macos")]
+#[test]
+fn fsync_06() {
+    let mut path = crate::test_dir();
+    path.push("fullfsync_01.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let err =
+        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
+    assert_eq!(err, 0);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDWR) };
+    assert!(fd > 0);
+
+    let err = unsafe { libc::fcntl(fd, libc::F_FULLFSYNC) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
+#[cfg(not(target_os = "macos"))]
+#[test]
+#[ignored = "unsupported operation"]
+fn fsync_06() {}
 
 // FADVISE1: NORMAL
-// FADVISE2: SEQUENTIAL
-// FADVISE3: RANDOM
-// FADVISE4: NOREUSE
-// FADVISE5: WILLNEED
-// FADVISE6: DONTNEED
+#[cfg(target_os = "macos")]
+#[test]
+#[ignore = "unsupported operation"]
+fn fadvise_01() {}
 
-// CFR1: Copy whole file
-// CFR2: Copy middle of file to new file
+#[cfg(not(target_os = "macos"))]
+#[test]
+fn fadvise_01() {
+    let mut path = crate::test_dir();
+    path.push("fadvise_01.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDONLY) };
+    assert!(fd > 0);
+
+    let err = unsafe { libc::posix_fadvise(fd, libc::POSIX_FADV_NORMAL) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
+// FADVISE2: SEQUENTIAL
+#[cfg(target_os = "macos")]
+#[test]
+#[ignore = "unsupported operation"]
+fn fadvise_02() {}
+
+#[cfg(not(target_os = "macos"))]
+#[test]
+fn fadvise_02() {
+    let mut path = crate::test_dir();
+    path.push("fadvise_02.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDONLY) };
+    assert!(fd > 0);
+
+    let err = unsafe { libc::posix_fadvise(fd, libc::POSIX_FADV_SEQUENTIAL) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
+// FADVISE3: RANDOM
+#[cfg(target_os = "macos")]
+#[test]
+#[ignore = "unsupported operation"]
+fn fadvise_03() {}
+
+#[cfg(not(target_os = "macos"))]
+#[test]
+fn fadvise_03() {
+    let mut path = crate::test_dir();
+    path.push("fadvise_03.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDONLY) };
+    assert!(fd > 0);
+
+    let err = unsafe { libc::posix_fadvise(fd, libc::POSIX_FADV_RANDOM) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
+// FADVISE4: NOREUSE
+#[cfg(target_os = "macos")]
+#[test]
+#[ignore = "unsupported operation"]
+fn fadvise_04() {}
+
+#[cfg(not(target_os = "macos"))]
+#[test]
+fn fadvise_04() {
+    let mut path = crate::test_dir();
+    path.push("fadvise_04.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDONLY) };
+    assert!(fd > 0);
+
+    let err = unsafe { libc::posix_fadvise(fd, libc::POSIX_FADV_NOREUSE) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
+// FADVISE5: WILLNEED
+#[cfg(target_os = "macos")]
+#[test]
+#[ignore = "unsupported operation"]
+fn fadvise_05() {}
+
+#[cfg(not(target_os = "macos"))]
+#[test]
+fn fadvise_05() {
+    let mut path = crate::test_dir();
+    path.push("fadvise_05.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDONLY) };
+    assert!(fd > 0);
+
+    let err = unsafe { libc::posix_fadvise(fd, libc::POSIX_FADV_WILLNEED) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
+// FADVISE6: DONTNEED
+#[cfg(target_os = "macos")]
+#[test]
+#[ignore = "unsupported operation"]
+fn fadvise_06() {}
+
+#[cfg(not(target_os = "macos"))]
+#[test]
+fn fadvise_06() {
+    let mut path = crate::test_dir();
+    path.push("fadvise_06.txt");
+
+    crate::create_file(&mut path, &[]);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDONLY) };
+    assert!(fd > 0);
+
+    let err = unsafe { libc::posix_fadvise(fd, libc::POSIX_FADV_WILLNEED) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
+// CPRANGE1: Copy whole file to EOF
+#[cfg(target_os = "macos")]
+#[test]
+#[ignore = "unsupported operation"]
+fn cprange_01() {}
+
+#[cfg(not(target_os = "macos"))]
+#[test]
+fn cprange_01() {
+    let mut path = crate::test_dir();
+    path.push("cprange_01.txt");
+
+    let data = vec![0u8; 1024];
+    crate::create_file(&mut path, &data);
+
+    let err =
+        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
+    assert_eq!(err, 0);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDWR) };
+    assert!(fd > 0);
+
+    let mut src_offset: i64 = 0;
+    let mut dst_offset: i64 = 1024;
+    let len = unsafe {
+        libc::copy_file_range(fd, &mut src_offset, fd, &mut dst_offset, 1024, 0)
+    };
+    assert_eq!(len, 1024);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
+// CPRANGE2: Copy middle of file to new file
+#[cfg(target_os = "macos")]
+#[test]
+#[ignore = "unsupported operation"]
+fn cprange_02() {}
+
+#[cfg(not(target_os = "macos"))]
+#[test]
+fn cprange_02() {
+    let mut path_src = crate::test_dir();
+    let path_dst = path_src.clone();
+
+    path_src.push("cprange_02_src.txt");
+    path_dst.push("cprange_03_dst.txt");
+
+    let data = vec![0u8; 4096];
+    crate::create_file(&mut path_src, &data);
+    crate::create_file(&mut path_dst, &[]);
+
+    let err =
+        unsafe { libc::chmod(path_dst.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
+    assert_eq!(err, 0);
+
+    let src_fd = unsafe { libc::open(path_src.c_str(), libc::O_RDONLY) };
+    assert!(src_fd > 0);
+
+    let dst_fd = unsafe { libc::open(path_dst.c_str(), libc::O_WRONLY) };
+    assert!(dst_fd > 0);
+
+    let mut src_offset: i64 = 1024;
+    let mut dst_offset: i64 = 0;
+    let len = unsafe {
+        libc::copy_file_range(
+            src_fd,
+            &mut src_offset,
+            dst_fd,
+            &mut dst_offset,
+            2048,
+            0,
+        )
+    };
+    assert_eq!(len, 2048);
+
+    let err = unsafe { libc::close(src_fd) };
+    assert_eq!(err, 0);
+
+    let err = unsafe { libc::close(dst_fd) };
+    assert_eq!(err, 0);
+
+    let st = crate::stat(&mut path_dst);
+    assert_eq!(st.st_size, 2048);
+}
