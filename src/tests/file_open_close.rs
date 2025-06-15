@@ -137,7 +137,7 @@ open_ne! {
 }
 
 #[cfg(target_os = "linux")]
-pub mod extended_options {
+pub mod linux_open_ne {
     super::open_ne! {
         open_ne_37: (libc::O_RDONLY, libc::O_ASYNC, true, 0),
         open_ne_38: (libc::O_RDONLY, libc::O_DIRECT, true, 0),
@@ -212,7 +212,7 @@ open_creat! {
 }
 
 #[cfg(target_os = "linux")]
-pub mod extended_options {
+pub mod linux_open_creat {
     super::open_creat! {
         open_creat_37: (libc::O_RDONLY, libc::O_ASYNC, true, 0),
         open_creat_38: (libc::O_RDONLY, libc::O_DIRECT, true, 0),
@@ -287,7 +287,7 @@ open_exist_ro! {
 }
 
 #[cfg(target_os = "linux")]
-pub mod extended_options {
+pub mod linux_open_exist_ro {
     super::open_exist_ro! {
         open_exist_ro_37: (libc::O_RDONLY, libc::O_ASYNC, true, 0),
         open_exist_ro_38: (libc::O_RDONLY, libc::O_DIRECT, true, 0),
@@ -362,7 +362,7 @@ open_exist_rw! {
 }
 
 #[cfg(target_os = "linux")]
-pub mod extended_options {
+pub mod linux_open_exist_rw {
     super::open_exist_rw! {
         open_exist_rw_37: (libc::O_RDONLY, libc::O_ASYNC, true, 0),
         open_exist_rw_38: (libc::O_RDONLY, libc::O_DIRECT, true, 0),
