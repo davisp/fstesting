@@ -409,7 +409,7 @@ pub mod linux_open_exist_rw {
         open_exist_rw_43: (libc::O_RDONLY, libc::O_NDELAY, true, 0),
         open_exist_rw_44: (libc::O_RDONLY, libc::O_PATH, true, 0),
         open_exist_rw_45: (libc::O_RDONLY, libc::O_SYNC, true, 0),
-        open_exist_rw_46: (libc::O_RDONLY, libc::O_TMPFILE, false, libc::EIVNAL),
+        open_exist_rw_46: (libc::O_RDONLY, libc::O_TMPFILE, false, libc::EINVAL),
         open_exist_rw_47: (libc::O_WRONLY, libc::O_ASYNC, true, 0),
         open_exist_rw_48: (libc::O_WRONLY, libc::O_DIRECT, true, 0),
         open_exist_rw_49: (libc::O_WRONLY, libc::O_DSYNC, true, 0),
