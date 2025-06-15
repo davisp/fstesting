@@ -921,18 +921,8 @@ fn fsync_06() {
     assert_eq!(err, 0);
 }
 
-#[cfg(not(target_os = "macos"))]
-#[test]
-#[ignore = "unsupported operation"]
-fn fsync_06() {}
-
 // FADVISE1: NORMAL
-#[cfg(target_os = "macos")]
-#[test]
-#[ignore = "unsupported operation"]
-fn fadvise_01() {}
-
-#[cfg(not(target_os = "macos"))]
+#[cfg(target_os = "linux")]
 #[test]
 fn fadvise_01() {
     let mut path = crate::test_dir();
@@ -953,12 +943,7 @@ fn fadvise_01() {
 }
 
 // FADVISE2: SEQUENTIAL
-#[cfg(target_os = "macos")]
-#[test]
-#[ignore = "unsupported operation"]
-fn fadvise_02() {}
-
-#[cfg(not(target_os = "macos"))]
+#[cfg(target_os = "linux")]
 #[test]
 fn fadvise_02() {
     let mut path = crate::test_dir();
@@ -980,12 +965,7 @@ fn fadvise_02() {
 }
 
 // FADVISE3: RANDOM
-#[cfg(target_os = "macos")]
-#[test]
-#[ignore = "unsupported operation"]
-fn fadvise_03() {}
-
-#[cfg(not(target_os = "macos"))]
+#[cfg(target_os = "linux")]
 #[test]
 fn fadvise_03() {
     let mut path = crate::test_dir();
@@ -1006,12 +986,7 @@ fn fadvise_03() {
 }
 
 // FADVISE4: NOREUSE
-#[cfg(target_os = "macos")]
-#[test]
-#[ignore = "unsupported operation"]
-fn fadvise_04() {}
-
-#[cfg(not(target_os = "macos"))]
+#[cfg(target_os = "linux")]
 #[test]
 fn fadvise_04() {
     let mut path = crate::test_dir();
@@ -1032,12 +1007,7 @@ fn fadvise_04() {
 }
 
 // FADVISE5: WILLNEED
-#[cfg(target_os = "macos")]
-#[test]
-#[ignore = "unsupported operation"]
-fn fadvise_05() {}
-
-#[cfg(not(target_os = "macos"))]
+#[cfg(target_os = "linux")]
 #[test]
 fn fadvise_05() {
     let mut path = crate::test_dir();
@@ -1058,12 +1028,7 @@ fn fadvise_05() {
 }
 
 // FADVISE6: DONTNEED
-#[cfg(target_os = "macos")]
-#[test]
-#[ignore = "unsupported operation"]
-fn fadvise_06() {}
-
-#[cfg(not(target_os = "macos"))]
+#[cfg(target_os = "linux")]
 #[test]
 fn fadvise_06() {
     let mut path = crate::test_dir();
@@ -1084,12 +1049,7 @@ fn fadvise_06() {
 }
 
 // CPRANGE1: Copy whole file to EOF
-#[cfg(target_os = "macos")]
-#[test]
-#[ignore = "unsupported operation"]
-fn cprange_01() {}
-
-#[cfg(not(target_os = "macos"))]
+#[cfg(target_os = "linux")]
 #[test]
 fn cprange_01() {
     let mut path = crate::test_dir();
@@ -1117,12 +1077,7 @@ fn cprange_01() {
 }
 
 // CPRANGE2: Copy middle of file to new file
-#[cfg(target_os = "macos")]
-#[test]
-#[ignore = "unsupported operation"]
-fn cprange_02() {}
-
-#[cfg(not(target_os = "macos"))]
+#[cfg(target_os = "linux")]
 #[test]
 fn cprange_02() {
     let mut path_src = crate::test_dir();

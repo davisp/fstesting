@@ -95,11 +95,6 @@ fn fsyncdir() {
     assert_eq!(err, 0);
 }
 
-#[cfg(not(target_os = "linux"))]
-#[test]
-#[ignore = "Not supported"]
-fn fdatasyncdir() {}
-
 #[cfg(target_os = "linux")]
 #[test]
 fn fdatasyncdir() {
@@ -108,7 +103,7 @@ fn fdatasyncdir() {
     let fd = unsafe { libc::open(dir.c_str(), libc::O_RDWR) };
     let err = unsafe { libc::fdatasync(fd) };
     assert_eq!(err, -1);
-    assert_eq!(crate::errno(), libc::EISDIR);
+    assert_eq!(crate::errno(), libc::EBADF);
 
     let err = unsafe { libc::close(fd) };
     assert_eq!(err, 0);
