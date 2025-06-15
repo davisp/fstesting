@@ -331,13 +331,22 @@ fn falloc_01() {
 #[cfg(target_os = "linux")]
 #[test]
 fn falloc_01() {
-    todo!();
-}
+    let mut path = crate::test_dir();
+    path.push("falloc_01.txt");
 
-#[cfg(not(any(target_os = "macos", target_os = "linux")))]
-#[test]
-#[ignore = "falloc not supoprted"]
-fn falloc_01() {}
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDWR | libc::O_CREAT) };
+    assert!(fd > 0);
+
+    let err = unsafe { libc::posix_fallocate(fd, 0, 1024 * 1024) };
+    assert_eq!(err, 0);
+
+    let st = crate::stat(&mut path);
+    let stfs = crate::statfs(&mut path);
+    assert!(st.st_blocks * (stfs.f_bsize as i64) >= (1024 * 1024));
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
 
 // FALLOC2: Extend file with zeros
 #[cfg(target_os = "macos")]
@@ -380,13 +389,27 @@ fn falloc_02() {
 #[cfg(target_os = "linux")]
 #[test]
 fn falloc_02() {
-    todo!();
-}
+    let mut path = crate::test_dir();
+    path.push("falloc_02.txt");
 
-#[cfg(not(any(target_os = "macos", target_os = "linux")))]
-#[test]
-#[ignore = "falloc not supoprted"]
-fn falloc_02() {}
+    crate::create_file(&mut path, "Hello, World!".as_bytes());
+    let err =
+        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
+    assert_eq!(err, 0);
+
+    let fd = unsafe { libc::open(path.c_str(), libc::O_RDWR | libc::O_CREAT) };
+    assert!(fd > 0);
+
+    let err = unsafe { libc::posix_fallocate(fd, 12, 512) };
+    assert_eq!(err, 0);
+
+    let st = crate::stat(&mut path);
+    let stfs = crate::statfs(&mut path);
+    assert!(st.st_blocks * (stfs.f_bsize as i64) >= 525);
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
 
 // Skipping these for now.
 // FALLOC3: Punch hole - region is filled with zeroes

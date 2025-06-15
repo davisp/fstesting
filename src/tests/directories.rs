@@ -107,7 +107,8 @@ fn fdatasyncdir() {
 
     let fd = unsafe { libc::open(dir.c_str(), libc::O_RDWR) };
     let err = unsafe { libc::fdatasync(fd) };
-    assert_eq!(err, 0);
+    assert_eq!(err, -1);
+    assert_eq!(crate::errno(), libc::EISDIR);
 
     let err = unsafe { libc::close(fd) };
     assert_eq!(err, 0);
