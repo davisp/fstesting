@@ -900,7 +900,7 @@ fn fsync_06() {
 
 #[cfg(not(target_os = "macos"))]
 #[test]
-#[ignored = "unsupported operation"]
+#[ignore = "unsupported operation"]
 fn fsync_06() {}
 
 // FADVISE1: NORMAL
