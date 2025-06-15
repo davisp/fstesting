@@ -233,7 +233,7 @@ pub mod macos_open_creat {
 
 #[cfg(target_os = "linux")]
 pub mod linux_open_creat {
-    super::open_creat! {
+    crate::open_creat! {
         open_creat_37: (libc::O_RDONLY, libc::O_ASYNC, true, 0),
         open_creat_38: (libc::O_RDONLY, libc::O_DIRECT, true, 0),
         open_creat_39: (libc::O_RDONLY, libc::O_DSYNC, true, 0),
@@ -316,7 +316,7 @@ pub mod macos_open_exist_ro {
 
 #[cfg(target_os = "linux")]
 pub mod linux_open_exist_ro {
-    super::open_exist_ro! {
+    crate::open_exist_ro! {
         open_exist_ro_37: (libc::O_RDONLY, libc::O_ASYNC, true, 0),
         open_exist_ro_38: (libc::O_RDONLY, libc::O_DIRECT, true, 0),
         open_exist_ro_39: (libc::O_RDONLY, libc::O_DSYNC, true, 0),
