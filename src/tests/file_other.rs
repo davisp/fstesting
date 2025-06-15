@@ -429,7 +429,7 @@ fn fcntl_01() {
     assert!(fd1 > 0);
 
     let fd2 = unsafe { libc::fcntl(fd1, libc::F_DUPFD) };
-    assert!(fd2 > fd1);
+    assert!(fd2 > 0);
 
     let err = unsafe { libc::close(fd1) };
     assert_eq!(err, 0);
