@@ -54,6 +54,11 @@ This is a small repo to demonstrate running various fstests in GitHub Actions.
 
 - statfs()
 
+## ToDo
+
+- Check ls persistence of directories
+- Check ls with more than 1000 directory entries
+
 ## Using mountpoint-s3 with minio
 
 mount-s3 \

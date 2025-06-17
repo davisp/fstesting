@@ -111,7 +111,7 @@ fn pwrite_02() {
 
 // PWRITE3: Write file, rewrite first half
 #[test]
-fn pwrite_303() {
+fn pwrite_03() {
     let mut path = crate::test_dir();
     path.push("pwrite_05.txt");
 
