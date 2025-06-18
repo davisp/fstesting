@@ -1,0 +1,596 @@
+{ "type": "suite", "event": "started", "test_count": 297 }
+{ "type": "test", "event": "started", "name": "tests::directories::dirs_01" }
+{ "type": "test", "event": "started", "name": "tests::directories::dirs_02" }
+{ "type": "test", "event": "started", "name": "tests::directories::dirs_03" }
+{ "type": "test", "event": "started", "name": "tests::directories::dirs_04" }
+{ "type": "test", "event": "started", "name": "tests::directories::dirs_05" }
+{ "type": "test", "event": "started", "name": "tests::directories::dirs_06" }
+{ "type": "test", "event": "started", "name": "tests::directories::dirs_07" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_01" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_02" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_03" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_04" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_05" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_06" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_07" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_08" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_09" }
+{ "type": "test", "name": "tests::directories::dirs_05", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_10" }
+{ "type": "test", "name": "tests::directories::dirs_02", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_11" }
+{ "type": "test", "name": "tests::directories::dirs_06", "event": "failed", "stdout": "\nthread 'tests::directories::dirs_06' panicked at src/tests/directories.rs:124:5:\nassertion `left == right` failed\n  left: 1\n right: 13\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_12" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_10", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_13" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_09", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_14" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_06", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_creat::open_creat_06' panicked at src/tests/file_open_close.rs:167:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_15" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_11", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_16" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_08", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_17" }
+{ "type": "test", "name": "tests::directories::dirs_07", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_18" }
+{ "type": "test", "name": "tests::directories::dirs_01", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_19" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_05", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_creat::open_creat_05' panicked at src/tests/file_open_close.rs:167:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_20" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_07", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_creat::open_creat_07' panicked at src/tests/file_open_close.rs:167:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_creat::open_creat_21" }
+{ "type": "test", "name": "tests::directories::dirs_03", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_01" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_01", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_creat::open_creat_01' panicked at src/tests/file_open_close.rs:167:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_02" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_12", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_03" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_13", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_04" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_02", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_creat::open_creat_02' panicked at src/tests/file_open_close.rs:167:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_05" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_04", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_creat::open_creat_04' panicked at src/tests/file_open_close.rs:167:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_06" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_03", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_creat::open_creat_03' panicked at src/tests/file_open_close.rs:167:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_07" }
+{ "type": "test", "name": "tests::directories::dirs_04", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_08" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_14", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_09" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_15", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_10" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_16", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_11" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_17", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_12" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_18", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_13" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_19", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_14" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_20", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_15" }
+{ "type": "test", "name": "tests::file_open_close::common_open_creat::open_creat_21", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_16" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_01", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_01' panicked at src/tests/file_open_close.rs:229:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_17" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_02", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_02' panicked at src/tests/file_open_close.rs:229:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_18" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_03", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_03' panicked at src/tests/file_open_close.rs:229:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_19" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_04", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_04' panicked at src/tests/file_open_close.rs:229:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_20" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_05", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_05' panicked at src/tests/file_open_close.rs:229:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_21" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_06", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_06' panicked at src/tests/file_open_close.rs:229:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_01" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_07", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_07' panicked at src/tests/file_open_close.rs:229:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_02" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_08", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_08' panicked at src/tests/file_open_close.rs:229:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_03" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_09", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_09' panicked at src/tests/file_open_close.rs:229:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_04" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_10", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_10' panicked at src/tests/file_open_close.rs:229:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_05" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_11", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_11' panicked at src/tests/file_open_close.rs:229:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_06" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_12", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_12' panicked at src/tests/file_open_close.rs:229:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_07" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_13", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_13' panicked at src/tests/file_open_close.rs:229:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_08" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_14", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_14' panicked at src/tests/file_open_close.rs:229:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_09" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_15", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_15' panicked at src/tests/file_open_close.rs:229:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_10" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_16", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_16' panicked at src/tests/file_open_close.rs:229:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_11" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_17", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_17' panicked at src/tests/file_open_close.rs:229:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_12" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_18", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_18' panicked at src/tests/file_open_close.rs:229:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_13" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_19", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_19' panicked at src/tests/file_open_close.rs:229:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_14" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_20", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_20' panicked at src/tests/file_open_close.rs:229:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_15" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_ro::open_exist_ro_21", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_ro::open_exist_ro_21' panicked at src/tests/file_open_close.rs:229:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_16" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_01", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_01' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_17" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_02", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_02' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_18" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_03", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_03' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_19" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_04", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_04' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_20" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_05", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_05' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_21" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_06", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_06' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_01" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_07", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_07' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_02" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_08", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_08' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_03" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_09", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_09' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_04" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_10", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_10' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_05" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_11", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_11' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_06" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_12", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_12' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_07" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_13", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_13' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_08" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_14", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_14' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_09" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_15", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_15' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_10" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_16", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_16' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_11" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_17", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_17' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_12" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_18", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_18' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_13" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_19", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_19' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_14" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_20", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_20' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_15" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_01", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_16" }
+{ "type": "test", "name": "tests::file_open_close::common_open_exist_rw::open_exist_rw_21", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_exist_rw::open_exist_rw_21' panicked at src/tests/file_open_close.rs:291:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_17" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_02", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_18" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_04", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_19" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_03", "event": "failed", "stdout": "\nthread 'tests::file_open_close::common_open_ne::open_ne_03' panicked at src/tests/file_open_close.rs:105:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_20" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_05", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::common_open_ne::open_ne_21" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_06", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_22" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_07", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_23" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_08", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_24" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_09", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_25" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_11", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_26" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_10", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_27" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_12", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_28" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_13", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_29" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_14", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_30" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_15", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_31" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_16", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_32" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_17", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_33" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_18", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_34" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_19", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_35" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_20", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_36" }
+{ "type": "test", "name": "tests::file_open_close::common_open_ne::open_ne_21", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_37" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_22", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_creat::open_creat_22' panicked at src/tests/file_open_close.rs:194:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_38" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_23", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_creat::open_creat_23' panicked at src/tests/file_open_close.rs:194:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_39" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_24", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_creat::open_creat_24' panicked at src/tests/file_open_close.rs:194:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_40" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_25", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_creat::open_creat_25' panicked at src/tests/file_open_close.rs:194:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_41" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_26", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_creat::open_creat_26' panicked at src/tests/file_open_close.rs:194:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_42" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_27", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_creat::open_creat_27' panicked at src/tests/file_open_close.rs:194:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_43" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_29", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_44" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_28", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_creat::open_creat_28' panicked at src/tests/file_open_close.rs:194:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_45" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_30", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_creat::open_creat_30' panicked at src/tests/file_open_close.rs:194:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_46" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_31", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_47" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_32", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_48" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_33", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_49" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_34", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_creat::open_creat_34' panicked at src/tests/file_open_close.rs:194:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_50" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_35", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_creat::open_creat_51" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_36", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_22" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_37", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_23" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_39", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_24" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_38", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_25" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_41", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_26" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_40", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_creat::open_creat_40' panicked at src/tests/file_open_close.rs:194:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_27" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_42", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_28" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_43", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_29" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_44", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_creat::open_creat_44' panicked at src/tests/file_open_close.rs:194:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_30" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_45", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_31" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_46", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_32" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_47", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_33" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_49", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_34" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_48", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_35" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_51", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_36" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_creat::open_creat_50", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_creat::open_creat_50' panicked at src/tests/file_open_close.rs:194:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_37" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_22", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_22' panicked at src/tests/file_open_close.rs:256:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_38" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_23", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_23' panicked at src/tests/file_open_close.rs:256:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_39" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_24", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_24' panicked at src/tests/file_open_close.rs:256:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_40" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_25", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_25' panicked at src/tests/file_open_close.rs:256:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_41" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_26", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_26' panicked at src/tests/file_open_close.rs:256:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_42" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_27", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_27' panicked at src/tests/file_open_close.rs:256:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_43" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_28", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_28' panicked at src/tests/file_open_close.rs:256:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_44" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_29", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_45" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_30", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_30' panicked at src/tests/file_open_close.rs:256:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_46" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_31", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_47" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_32", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_32' panicked at src/tests/file_open_close.rs:256:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_48" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_33", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_33' panicked at src/tests/file_open_close.rs:256:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_49" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_34", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_34' panicked at src/tests/file_open_close.rs:256:5:\nassertion `left == right` failed\n  left: 22\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_50" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_35", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_35' panicked at src/tests/file_open_close.rs:256:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_51" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_36", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_36' panicked at src/tests/file_open_close.rs:256:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_22" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_37", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_37' panicked at src/tests/file_open_close.rs:256:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_23" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_38", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_38' panicked at src/tests/file_open_close.rs:256:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_24" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_39", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_25" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_40", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_40' panicked at src/tests/file_open_close.rs:256:5:\nassertion `left == right` failed\n  left: 22\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_26" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_41", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_27" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_42", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_42' panicked at src/tests/file_open_close.rs:256:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_28" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_43", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_43' panicked at src/tests/file_open_close.rs:256:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_29" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_44", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_44' panicked at src/tests/file_open_close.rs:256:5:\nassertion `left == right` failed\n  left: 22\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_30" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_45", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_45' panicked at src/tests/file_open_close.rs:256:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_31" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_46", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_46' panicked at src/tests/file_open_close.rs:256:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_32" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_47", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_47' panicked at src/tests/file_open_close.rs:256:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_33" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_48", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_48' panicked at src/tests/file_open_close.rs:256:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_34" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_49", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_35" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_50", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_ro::open_exist_ro_50' panicked at src/tests/file_open_close.rs:256:5:\nassertion `left == right` failed\n  left: 22\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_36" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_ro::open_exist_ro_51", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_37" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_22", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_22' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_38" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_23", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_23' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_39" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_24", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_24' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_40" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_25", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_25' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_41" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_26", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_26' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_42" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_27", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_27' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_43" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_28", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_28' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_44" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_29", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_45" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_30", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_30' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_46" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_31", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_47" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_32", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_32' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_48" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_33", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_33' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_49" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_34", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_34' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_50" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_35", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_35' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_51" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_36", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_36' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_22" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_37", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_37' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_23" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_38", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_38' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_24" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_39", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_25" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_40", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_40' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_26" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_41", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_27" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_42", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_42' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_28" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_43", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_43' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_29" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_44", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_44' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_30" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_45", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_45' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_31" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_46", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_46' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_32" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_47", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_47' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_33" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_48", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_48' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_34" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_49", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_35" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_50", "event": "failed", "stdout": "\nthread 'tests::file_open_close::linux_open_exist_rw::open_exist_rw_50' panicked at src/tests/file_open_close.rs:318:5:\nassertion failed: fd >= 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_36" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_22", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_37" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_exist_rw::open_exist_rw_51", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_38" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_23", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_39" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_24", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_40" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_25", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_41" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_26", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_42" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_27", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_43" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_28", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_44" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_29", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_45" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_30", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_46" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_31", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_47" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_32", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_48" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_33", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_49" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_34", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_50" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_35", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::linux_open_ne::open_ne_51" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_36", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::open_01" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_38", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_open_close::open_02" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_37", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::cprange_01" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_39", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::cprange_02" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_40", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::fadvise_01" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_41", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::fadvise_02" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_42", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::fadvise_03" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_43", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::fadvise_04" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_44", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::fadvise_05" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_45", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::fadvise_06" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_46", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::falloc_01" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_47", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::falloc_02" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_48", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::fcntl_01" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_49", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::fcntl_02" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_50", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::fcntl_03" }
+{ "type": "test", "name": "tests::file_open_close::linux_open_ne::open_ne_51", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::fcntl_04" }
+{ "type": "test", "name": "tests::file_open_close::open_01", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::fcntl_05" }
+{ "type": "test", "name": "tests::file_open_close::open_02", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::flock_01" }
+{ "type": "test", "name": "tests::file_other::cprange_01", "event": "failed", "stdout": "\nthread 'tests::file_other::cprange_01' panicked at src/tests/file_other.rs:1008:5:\nassertion `left == right` failed\n  left: -1\n right: 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_other::flock_02" }
+{ "type": "test", "name": "tests::file_other::falloc_01", "event": "failed", "stdout": "\nthread 'tests::file_other::falloc_01' panicked at src/tests/file_other.rs:346:5:\nassertion `left == right` failed\n  left: 22\n right: 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_other::flock_03" }
+{ "type": "test", "name": "tests::file_other::fadvise_01", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::flock_04" }
+{ "type": "test", "name": "tests::file_other::fadvise_02", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::flock_05" }
+{ "type": "test", "name": "tests::file_other::fadvise_03", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::flock_06" }
+{ "type": "test", "name": "tests::file_other::cprange_02", "event": "failed", "stdout": "\nthread 'tests::file_other::cprange_02' panicked at src/tests/file_other.rs:1046:5:\nassertion failed: dst_fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_other::flock_07" }
+{ "type": "test", "name": "tests::file_other::fcntl_02", "event": "failed", "stdout": "\nthread 'tests::file_other::fcntl_02' panicked at src/tests/file_other.rs:419:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_other::fsync_01" }
+{ "type": "test", "name": "tests::file_other::fadvise_04", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::fsync_02" }
+{ "type": "test", "name": "tests::file_other::fadvise_05", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::fsync_03" }
+{ "type": "test", "name": "tests::file_other::fcntl_03", "event": "failed", "stdout": "\nthread 'tests::file_other::fcntl_03' panicked at src/tests/file_other.rs:437:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_other::fsync_04" }
+{ "type": "test", "name": "tests::file_other::fcntl_04", "event": "failed", "stdout": "\nthread 'tests::file_other::fcntl_04' panicked at src/tests/file_other.rs:462:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_other::fsync_05" }
+{ "type": "test", "name": "tests::file_other::fcntl_05", "event": "failed", "stdout": "\nthread 'tests::file_other::fcntl_05' panicked at src/tests/file_other.rs:480:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_other::seek_01" }
+{ "type": "test", "name": "tests::file_other::fadvise_06", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::seek_02" }
+{ "type": "test", "name": "tests::file_other::flock_01", "event": "failed", "stdout": "\nthread 'tests::file_other::flock_01' panicked at src/tests/file_other.rs:508:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_other::seek_03" }
+{ "type": "test", "name": "tests::file_other::falloc_02", "event": "failed", "stdout": "\nthread 'tests::file_other::falloc_02' panicked at src/tests/file_other.rs:366:5:\nassertion `left == right` failed\n  left: -1\n right: 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_other::seek_04" }
+{ "type": "test", "name": "tests::file_other::flock_02", "event": "failed", "stdout": "\nthread 'tests::file_other::flock_02' panicked at src/tests/file_other.rs:533:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_other::symlink_01" }
+{ "type": "test", "name": "tests::file_other::flock_03", "event": "failed", "stdout": "\nthread 'tests::file_other::flock_03' panicked at src/tests/file_other.rs:558:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_other::truncate_01" }
+{ "type": "test", "name": "tests::file_other::fcntl_01", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_other::truncate_02" }
+{ "type": "test", "name": "tests::file_other::flock_04", "event": "failed", "stdout": "\nthread 'tests::file_other::flock_04' panicked at src/tests/file_other.rs:595:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_other::truncate_03" }
+{ "type": "test", "name": "tests::file_other::flock_05", "event": "failed", "stdout": "\nthread 'tests::file_other::flock_05' panicked at src/tests/file_other.rs:635:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_other::unlink_01" }
+{ "type": "test", "name": "tests::file_other::flock_06", "event": "failed", "stdout": "\nthread 'tests::file_other::flock_06' panicked at src/tests/file_other.rs:675:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_other::unlink_02" }
+{ "type": "test", "name": "tests::file_other::flock_07", "event": "failed", "stdout": "\nthread 'tests::file_other::flock_07' panicked at src/tests/file_other.rs:703:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_other::unlink_03" }
+{ "type": "test", "name": "tests::file_other::fsync_01", "event": "failed", "stdout": "\nthread 'tests::file_other::fsync_01' panicked at src/tests/file_other.rs:731:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_other::unlink_04" }
+{ "type": "test", "name": "tests::file_other::fsync_02", "event": "failed", "stdout": "\nthread 'tests::file_other::fsync_02' panicked at src/tests/file_other.rs:753:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_pread::pread_01" }
+{ "type": "test", "name": "tests::file_other::fsync_03", "event": "failed", "stdout": "\nthread 'tests::file_other::fsync_03' panicked at src/tests/file_other.rs:781:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_pread::pread_02" }
+{ "type": "test", "name": "tests::file_other::fsync_04", "event": "failed", "stdout": "\nthread 'tests::file_other::fsync_04' panicked at src/tests/file_other.rs:811:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_pread::pread_03" }
+{ "type": "test", "name": "tests::file_other::fsync_05", "event": "failed", "stdout": "\nthread 'tests::file_other::fsync_05' panicked at src/tests/file_other.rs:860:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_pread::pread_04" }
+{ "type": "test", "name": "tests::file_other::seek_03", "event": "failed", "stdout": "\nthread 'tests::file_other::seek_03' panicked at src/tests/file_other.rs:285:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_pread::pread_05" }
+{ "type": "test", "name": "tests::file_other::seek_04", "event": "failed", "stdout": "\nthread 'tests::file_other::seek_04' panicked at src/tests/file_other.rs:315:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_pread::pread_06" }
+{ "type": "test", "name": "tests::file_other::seek_02", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_pread::pread_08" }
+{ "type": "test", "name": "tests::file_other::seek_01", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_pwrite::pwrite_01" }
+{ "type": "test", "name": "tests::file_other::unlink_01", "event": "failed", "stdout": "\nthread 'tests::file_other::unlink_01' panicked at src/tests/file_other.rs:14:5:\nassertion `left == right` failed\n  left: -1\n right: 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_pwrite::pwrite_02" }
+{ "type": "test", "name": "tests::file_other::symlink_01", "event": "failed", "stdout": "\nthread 'tests::file_other::symlink_01' panicked at src/tests/file_other.rs:159:5:\nassertion `left == right` failed\n  left: -1\n right: 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_pwrite::pwrite_03" }
+{ "type": "test", "name": "tests::file_other::truncate_01", "event": "failed", "stdout": "\nthread 'tests::file_other::truncate_01' panicked at src/tests/file_other.rs:189:5:\nassertion `left == right` failed\n  left: -1\n right: 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_pwrite::pwrite_04" }
+{ "type": "test", "name": "tests::file_other::truncate_02", "event": "failed", "stdout": "\nthread 'tests::file_other::truncate_02' panicked at src/tests/file_other.rs:211:5:\nassertion `left == right` failed\n  left: -1\n right: 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_pwrite::pwrite_05" }
+{ "type": "test", "name": "tests::file_other::truncate_03", "event": "failed", "stdout": "\nthread 'tests::file_other::truncate_03' panicked at src/tests/file_other.rs:224:5:\nassertion `left == right` failed\n  left: 1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_pwrite::pwrite_06" }
+{ "type": "test", "name": "tests::file_pread::pread_06", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_pwrite::pwrite_07" }
+{ "type": "test", "name": "tests::file_other::unlink_03", "event": "failed", "stdout": "\nthread 'tests::file_other::unlink_03' panicked at src/tests/file_other.rs:68:5:\nassertion `left == right` failed\n  left: -1\n right: 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_pwrite::pwrite_08" }
+{ "type": "test", "name": "tests::file_other::unlink_02", "event": "failed", "stdout": "\nthread 'tests::file_other::unlink_02' panicked at src/tests/file_other.rs:33:5:\nassertion `left == right` failed\n  left: -1\n right: 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_pwrite::pwrite_09" }
+{ "type": "test", "name": "tests::file_other::unlink_04", "event": "failed", "stdout": "\nthread 'tests::file_other::unlink_04' panicked at src/tests/file_other.rs:97:5:\nassertion `left == right` failed\n  left: -1\n right: 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_pwrite::pwrite_10" }
+{ "type": "test", "name": "tests::file_pread::pread_08", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_pwrite::pwrite_11" }
+{ "type": "test", "name": "tests::file_pwrite::pwrite_02", "event": "failed", "stdout": "\nthread 'tests::file_pwrite::pwrite_02' panicked at src/tests/file_pwrite.rs:70:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_pwrite::pwrite_12" }
+{ "type": "test", "name": "tests::file_pwrite::pwrite_07", "event": "failed", "stdout": "\nthread 'tests::file_pwrite::pwrite_07' panicked at src/tests/file_pwrite.rs:404:5:\nassertion `left == right` failed\n  left: -1\n right: 18\n" }
+{ "type": "test", "event": "started", "name": "tests::file_pwrite::pwrite_13" }
+{ "type": "test", "name": "tests::file_pread::pread_05", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_pwrite::pwrite_14" }
+{ "type": "test", "name": "tests::file_pwrite::pwrite_06", "event": "failed", "stdout": "\nthread 'tests::file_pwrite::pwrite_06' panicked at src/tests/file_pwrite.rs:338:9:\nassertion `left == right` failed\n  left: -1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_pwrite::pwrite_15" }
+{ "type": "test", "name": "tests::file_pwrite::pwrite_09", "event": "failed", "stdout": "\nthread '<unnamed>' panicked at src/tests/file_pwrite.rs:522:13:\nassertion `left == right` failed\n  left: -1\n right: 13\n\nthread '<unnamed>' panicked at src/tests/file_pwrite.rs:507:13:\nassertion `left == right` failed\n  left: -1\n right: 13\n\nthread 'tests::file_pwrite::pwrite_09' panicked at src/tests/file_pwrite.rs:526:15:\ncalled `Result::unwrap()` on an `Err` value: Any { .. }\n" }
+{ "type": "test", "event": "started", "name": "tests::file_read::read_01" }
+{ "type": "test", "name": "tests::file_pwrite::pwrite_08", "event": "failed", "stdout": "\nthread 'tests::file_pwrite::pwrite_08' panicked at src/tests/file_pwrite.rs:458:9:\nassertion `left == right` failed\n  left: -1\n right: 26\n" }
+{ "type": "test", "event": "started", "name": "tests::file_read::read_02" }
+{ "type": "test", "name": "tests::file_pwrite::pwrite_10", "event": "failed", "stdout": "\nthread '<unnamed>' panicked at src/tests/file_pwrite.rs:594:9:\nassertion failed: fd > 0\n\nthread '<unnamed>' panicked at src/tests/file_pwrite.rs:578:13:\nassertion `left == right` failed\n  left: -1\n right: 13\n\nthread 'tests::file_pwrite::pwrite_10' panicked at src/tests/file_pwrite.rs:613:15:\ncalled `Result::unwrap()` on an `Err` value: Any { .. }\n" }
+{ "type": "test", "event": "started", "name": "tests::file_read::read_03" }
+{ "type": "test", "name": "tests::file_pwrite::pwrite_13", "event": "failed", "stdout": "\nthread '<unnamed>' panicked at src/tests/file_pwrite.rs:858:13:\nassertion `left == right` failed\n  left: -1\n right: 26\n\nthread '<unnamed>' panicked at src/tests/file_pwrite.rs:883:43:\ncalled `Result::unwrap()` on an `Err` value: RecvError\n\nthread 'tests::file_pwrite::pwrite_13' panicked at src/tests/file_pwrite.rs:889:15:\ncalled `Result::unwrap()` on an `Err` value: Any { .. }\n" }
+{ "type": "test", "event": "started", "name": "tests::file_write::write_01" }
+{ "type": "test", "name": "tests::file_pwrite::pwrite_14", "event": "failed", "stdout": "\nthread '<unnamed>' panicked at src/tests/file_pwrite.rs:964:13:\nassertion `left == right` failed\n  left: -1\n right: 26\n\nthread '<unnamed>' panicked at src/tests/file_pwrite.rs:947:43:\ncalled `Result::unwrap()` on an `Err` value: RecvError\n\nthread 'tests::file_pwrite::pwrite_14' panicked at src/tests/file_pwrite.rs:974:15:\ncalled `Result::unwrap()` on an `Err` value: Any { .. }\n" }
+{ "type": "test", "event": "started", "name": "tests::file_write::write_02" }
+{ "type": "test", "name": "tests::file_pwrite::pwrite_15", "event": "failed", "stdout": "\nthread 'tests::file_pwrite::pwrite_15' panicked at src/tests/file_pwrite.rs:1012:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_write::write_03" }
+{ "type": "test", "name": "tests::file_read::read_03", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_write::write_04" }
+{ "type": "test", "name": "tests::file_write::write_02", "event": "failed", "stdout": "\nthread 'tests::file_write::write_02' panicked at src/tests/file_write.rs:66:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "event": "started", "name": "tests::file_write::write_05" }
+{ "type": "test", "name": "tests::file_pwrite::pwrite_11", "event": "failed", "stdout": "\nthread '<unnamed>' panicked at src/tests/file_pwrite.rs:681:13:\nassertion `left == right` failed\n  left: -1\n right: 13\n\nthread 'tests::file_pwrite::pwrite_11' panicked at src/tests/file_pwrite.rs:700:15:\ncalled `Result::unwrap()` on an `Err` value: Any { .. }\n" }
+{ "type": "test", "event": "started", "name": "tests::file_write::write_06" }
+{ "type": "test", "name": "tests::file_pwrite::pwrite_12", "event": "failed", "stdout": "\nthread '<unnamed>' panicked at src/tests/file_pwrite.rs:760:13:\nassertion `left == right` failed\n  left: -1\n right: 13\n\nthread 'tests::file_pwrite::pwrite_12' panicked at src/tests/file_pwrite.rs:795:15:\ncalled `Result::unwrap()` on an `Err` value: Any { .. }\n" }
+{ "type": "test", "event": "started", "name": "tests::file_write::write_07" }
+{ "type": "test", "name": "tests::file_read::read_02", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_write::write_08" }
+{ "type": "test", "name": "tests::file_write::write_07", "event": "failed", "stdout": "\nthread 'tests::file_write::write_07' panicked at src/tests/file_write.rs:404:5:\nassertion `left == right` failed\n  left: -1\n right: 18\n" }
+{ "type": "test", "event": "started", "name": "tests::file_write::write_09" }
+{ "type": "test", "name": "tests::file_write::write_06", "event": "failed", "stdout": "\nthread 'tests::file_write::write_06' panicked at src/tests/file_write.rs:324:9:\nassertion `left == right` failed\n  left: -1\n right: 13\n" }
+{ "type": "test", "event": "started", "name": "tests::file_write::write_10" }
+{ "type": "test", "name": "tests::file_pread::pread_02", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::file_write::write_11" }
+{ "type": "test", "name": "tests::file_write::write_08", "event": "failed", "stdout": "\nthread 'tests::file_write::write_08' panicked at src/tests/file_write.rs:463:9:\nassertion `left == right` failed\n  left: -1\n right: 26\n" }
+{ "type": "test", "event": "started", "name": "tests::file_write::write_12" }
+{ "type": "test", "name": "tests::file_pread::pread_01", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::properties::mdata_01" }
+{ "type": "test", "name": "tests::properties::mdata_01", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::properties::mdata_02" }
+{ "type": "test", "name": "tests::file_write::write_11", "event": "failed", "stdout": "\nthread 'tests::file_write::write_11' panicked at src/tests/file_write.rs:666:5:\nassertion `left == right` failed\n  left: -1\n right: 0\n" }
+{ "type": "test", "event": "started", "name": "tests::properties::mdata_03" }
+{ "type": "test", "name": "tests::properties::mdata_02", "event": "failed", "stdout": "\nthread 'tests::properties::mdata_02' panicked at src/tests/properties.rs:27:5:\nassertion `left == right` failed\n  left: 420\n right: 256\n" }
+{ "type": "test", "event": "started", "name": "tests::properties::mdata_04" }
+{ "type": "test", "name": "tests::file_write::write_12", "event": "failed", "stdout": "\nthread 'tests::file_write::write_12' panicked at src/tests/file_write.rs:703:5:\nassertion `left == right` failed\n  left: -1\n right: 0\n" }
+{ "type": "test", "event": "started", "name": "tests::properties::mdata_05" }
+{ "type": "test", "name": "tests::properties::mdata_03", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::properties::mdata_06" }
+{ "type": "test", "name": "tests::properties::mdata_04", "event": "ok" }
+{ "type": "test", "event": "started", "name": "tests::properties::mdata_07" }
+{ "type": "test", "name": "tests::properties::mdata_05", "event": "failed", "stdout": "\nthread 'tests::properties::mdata_05' panicked at src/tests/properties.rs:88:5:\nassertion `left == right` failed\n  left: -1\n right: 0\n" }
+{ "type": "test", "event": "started", "name": "tests::special::statfs_01" }
+{ "type": "test", "name": "tests::properties::mdata_06", "event": "failed", "stdout": "\nthread 'tests::properties::mdata_06' panicked at src/tests/properties.rs:113:5:\nassertion `left == right` failed\n  left: -1\n right: 0\n" }
+{ "type": "test", "name": "tests::special::statfs_01", "event": "ok" }
+{ "type": "test", "name": "tests::properties::mdata_07", "event": "failed", "stdout": "\nthread 'tests::properties::mdata_07' panicked at src/tests/properties.rs:153:5:\nassertion `left == right` failed\n  left: -1\n right: 0\n" }
+{ "type": "test", "name": "tests::file_read::read_01", "event": "ok" }
+{ "type": "test", "name": "tests::file_pwrite::pwrite_05", "event": "failed", "stdout": "\nthread 'tests::file_pwrite::pwrite_05' panicked at src/tests/file_pwrite.rs:278:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "name": "tests::file_write::write_05", "event": "failed", "stdout": "\nthread 'tests::file_write::write_05' panicked at src/tests/file_write.rs:264:5:\nassertion failed: fd > 0\n" }
+{ "type": "test", "name": "tests::file_pread::pread_04", "event": "failed", "stdout": "\nthread '<unnamed>' panicked at src/tests/file_pread.rs:228:13:\nassertion `left == right` failed\n  left: -1\n right: 13\n\nthread '<unnamed>' panicked at src/tests/file_pread.rs:203:13:\nassertion `left == right` failed\n  left: -1\n right: 13\n\nthread 'tests::file_pread::pread_04' panicked at src/tests/file_pread.rs:236:15:\ncalled `Result::unwrap()` on an `Err` value: Any { .. }\n" }
+{ "type": "test", "name": "tests::file_pread::pread_03", "event": "failed", "stdout": "\nthread '<unnamed>' panicked at src/tests/file_pread.rs:160:13:\nassertion `left == right` failed\n  left: -1\n right: 13\n\nthread '<unnamed>' panicked at src/tests/file_pread.rs:142:13:\nassertion `left == right` failed\n  left: -1\n right: 13\n\nthread 'tests::file_pread::pread_03' panicked at src/tests/file_pread.rs:165:15:\ncalled `Result::unwrap()` on an `Err` value: Any { .. }\n" }
+{ "type": "test", "name": "tests::file_pwrite::pwrite_03", "event": "failed", "stdout": "\nthread 'tests::file_pwrite::pwrite_03' panicked at src/tests/file_pwrite.rs:163:9:\nassertion `left == right` failed\n  left: -1\n right: 26\n" }
+{ "type": "test", "name": "tests::file_pwrite::pwrite_01", "event": "failed", "stdout": "\nthread 'tests::file_pwrite::pwrite_01' panicked at src/tests/file_pwrite.rs:52:5:\nassertion `left == right` failed\n  left: -1\n right: 0\n" }
+{ "type": "test", "name": "tests::file_pwrite::pwrite_04", "event": "failed", "stdout": "\nthread 'tests::file_pwrite::pwrite_04' panicked at src/tests/file_pwrite.rs:219:5:\nassertion `left == right` failed\n  left: -1\n right: 0\n" }
+{ "type": "test", "name": "tests::file_write::write_03", "event": "failed", "stdout": "\nthread 'tests::file_write::write_03' panicked at src/tests/file_write.rs:157:9:\nassertion `left == right` failed\n  left: -1\n right: 26\n" }
+{ "type": "test", "name": "tests::file_write::write_01", "event": "failed", "stdout": "\nthread 'tests::file_write::write_01' panicked at src/tests/file_write.rs:48:5:\nassertion `left == right` failed\n  left: -1\n right: 0\n" }
+{ "type": "test", "name": "tests::file_write::write_04", "event": "failed", "stdout": "\nthread 'tests::file_write::write_04' panicked at src/tests/file_write.rs:208:5:\nassertion `left == right` failed\n  left: -1\n right: 0\n" }
+{ "type": "test", "name": "tests::file_write::write_10", "event": "failed", "stdout": "\nthread '<unnamed>' panicked at src/tests/file_write.rs:601:9:\nassertion failed: fd > 0\n\nthread '<unnamed>' panicked at src/tests/file_write.rs:589:9:\nassertion `left == right` failed\n  left: -1\n right: 0\n\nthread 'tests::file_write::write_10' panicked at src/tests/file_write.rs:619:15:\ncalled `Result::unwrap()` on an `Err` value: Any { .. }\n" }
+{ "type": "test", "name": "tests::file_write::write_09", "event": "failed", "stdout": "\nthread '<unnamed>' panicked at src/tests/file_write.rs:517:13:\nassertion `left == right` failed\n  left: -1\n right: 13\n\nthread '<unnamed>' panicked at src/tests/file_write.rs:531:13:\nassertion `left == right` failed\n  left: -1\n right: 13\n\nthread 'tests::file_write::write_09' panicked at src/tests/file_write.rs:535:15:\ncalled `Result::unwrap()` on an `Err` value: Any { .. }\n" }
+{ "type": "suite", "event": "failed", "passed": 123, "failed": 174, "ignored": 0, "measured": 0, "filtered_out": 0, "exec_time": 35.623951619 }
