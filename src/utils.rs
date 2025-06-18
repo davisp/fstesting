@@ -86,28 +86,3 @@ pub fn statfs(path: &mut TestPath) -> libc::statfs {
         stats
     }
 }
-
-#[cfg(target_os = "macos")]
-pub fn listxattr(path: &mut TestPath) -> Vec<String> {
-    let mut names = vec![0u8; 4096];
-    let len = unsafe {
-        libc::listxattr(
-            path.c_str(),
-            names.as_mut_ptr() as *mut libc::c_char,
-            4096,
-            0,
-        )
-    };
-    assert!(len >= 0);
-
-    let mut list = Vec::new();
-    let start: usize = 0;
-    for i in 0..(len as usize) {
-        if names[i] == 0 {
-            let n = String::from_utf8_lossy(&names[start..i]).to_string();
-            list.push(n);
-        }
-    }
-
-    list
-}

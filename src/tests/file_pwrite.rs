@@ -996,45 +996,12 @@ fn pwrite_14() {
     assert_eq!(size, DATA_SIZE);
 }
 
-/// pwrite_15: pwrite unaffected by O_APPEND
-#[cfg(target_os = "macos")]
+/// pwrite_15: pwrite *is* affected by O_APPEND
+#[cfg(target_os = "linux")]
 #[test]
 fn pwrite_15() {
     let mut path = crate::test_dir();
     path.push("pwrite_15.txt");
-    crate::create_file(&mut path, &[]);
-
-    let err =
-        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
-    assert_eq!(err, 0);
-
-    let fd = unsafe { libc::open(path.c_str(), libc::O_RDWR | libc::O_APPEND) };
-    assert!(fd > 0);
-
-    let bytes = vec![0u8; 1024];
-    let len = unsafe {
-        libc::pwrite(fd, bytes.as_ptr() as *const libc::c_void, bytes.len(), 0)
-    };
-    assert_eq!(len, bytes.len() as isize);
-
-    let len = unsafe {
-        libc::pwrite(fd, bytes.as_ptr() as *const libc::c_void, bytes.len(), 0)
-    };
-    assert_eq!(len, bytes.len() as isize);
-
-    let err = unsafe { libc::close(fd) };
-    assert_eq!(err, 0);
-
-    let st = crate::stat(&mut path);
-    assert_eq!(st.st_size, 1024);
-}
-
-/// pwrite_16: pwrite *is* affected by O_APPEND
-#[cfg(target_os = "linux")]
-#[test]
-fn pwrite_16() {
-    let mut path = crate::test_dir();
-    path.push("pwrite_16.txt");
     crate::create_file(&mut path, &[]);
 
     let err =

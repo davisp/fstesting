@@ -332,40 +332,7 @@ fn seek_04() {
     assert_eq!(err, 0);
 }
 
-/// falloc_01: Create file of zeros
-#[cfg(target_os = "macos")]
-#[test]
-fn falloc_01() {
-    let mut path = crate::test_dir();
-    path.push("falloc_01.txt");
-
-    let fd = unsafe { libc::open(path.c_str(), libc::O_RDWR | libc::O_CREAT) };
-    assert!(fd > 0);
-
-    let allocated = unsafe {
-        let mut fs: libc::fstore_t = std::mem::zeroed();
-        fs.fst_flags = libc::F_ALLOCATECONTIG | libc::F_ALLOCATEALL;
-        fs.fst_posmode = libc::F_PEOFPOSMODE;
-        fs.fst_offset = 0;
-        fs.fst_length = 1024 * 1024;
-        fs.fst_bytesalloc = 0;
-
-        let err = crate::fcntl_prealloc(fd, libc::F_PREALLOCATE, &mut fs);
-        assert_eq!(err, 0);
-
-        fs.fst_bytesalloc
-    };
-
-    assert!(allocated >= 1024 * 1024);
-    let st = crate::stat(&mut path);
-    let stfs = crate::statfs(&mut path);
-    assert!(st.st_blocks * (stfs.f_bsize as i64) >= (1024 * 1024));
-
-    let err = unsafe { libc::close(fd) };
-    assert_eq!(err, 0);
-}
-
-/// falloc_01: Create file of zeros
+/// falloc_01: Allocate file space for empty file
 #[cfg(target_os = "linux")]
 #[test]
 fn falloc_01() {
@@ -386,44 +353,7 @@ fn falloc_01() {
     assert_eq!(err, 0);
 }
 
-/// falloc_02: Extend file with zeros
-#[cfg(target_os = "macos")]
-#[test]
-fn falloc_02() {
-    let mut path = crate::test_dir();
-    path.push("falloc_02.txt");
-
-    crate::create_file(&mut path, "Hello, World!".as_bytes());
-    let err =
-        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
-    assert_eq!(err, 0);
-
-    let fd = unsafe { libc::open(path.c_str(), libc::O_RDWR | libc::O_CREAT) };
-    assert!(fd > 0);
-
-    let allocated = unsafe {
-        let mut fs: libc::fstore_t = std::mem::zeroed();
-        fs.fst_flags = libc::F_ALLOCATECONTIG | libc::F_ALLOCATEALL;
-        fs.fst_posmode = libc::F_PEOFPOSMODE;
-        fs.fst_offset = 0;
-        fs.fst_length = 512;
-        fs.fst_bytesalloc = 0;
-
-        let err = crate::fcntl_prealloc(fd, libc::F_PREALLOCATE, &mut fs);
-        assert_eq!(err, 0);
-
-        fs.fst_bytesalloc
-    };
-
-    assert!(allocated >= 512);
-    let st = crate::stat(&mut path);
-    let stfs = crate::statfs(&mut path);
-    assert!(st.st_blocks * (stfs.f_bsize as i64) >= 525);
-
-    let err = unsafe { libc::close(fd) };
-    assert_eq!(err, 0);
-}
-
+/// falloc_02: Extend existing non-empty file
 #[cfg(target_os = "linux")]
 #[test]
 fn falloc_02() {
@@ -930,29 +860,6 @@ fn fsync_05() {
     assert!(fd > 0);
 
     let err = unsafe { libc::fsync(fd) };
-    assert_eq!(err, 0);
-
-    let err = unsafe { libc::close(fd) };
-    assert_eq!(err, 0);
-}
-
-/// fsync_06: macOS specific fcntl for stronger durability guarantees
-#[cfg(target_os = "macos")]
-#[test]
-fn fsync_06() {
-    let mut path = crate::test_dir();
-    path.push("fullfsync_01.txt");
-
-    crate::create_file(&mut path, &[]);
-
-    let err =
-        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
-    assert_eq!(err, 0);
-
-    let fd = unsafe { libc::open(path.c_str(), libc::O_RDWR) };
-    assert!(fd > 0);
-
-    let err = unsafe { libc::fcntl(fd, libc::F_FULLFSYNC) };
     assert_eq!(err, 0);
 
     let err = unsafe { libc::close(fd) };
