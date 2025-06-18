@@ -1,4 +1,4 @@
-/// MDATA1: access
+/// mdata_01: access
 #[test]
 fn mdata_01() {
     let mut path = crate::test_dir();
@@ -16,7 +16,7 @@ fn mdata_01() {
     }
 }
 
-/// MDATA2: chmod
+/// mdata_02: chmod
 #[test]
 fn mdata_02() {
     let mut path = crate::test_dir();
@@ -35,7 +35,7 @@ fn mdata_02() {
     }
 }
 
-/// MDATA3: utime
+/// mdata_03: utime
 #[test]
 fn mdata_03() {
     let mut path = crate::test_dir();
@@ -61,7 +61,7 @@ fn mdata_03() {
     assert_eq!(err, 0);
 }
 
-/// MDATA4: stat
+/// mdata_04: stat
 #[test]
 fn mdata_04() {
     let mut path = crate::test_dir();
@@ -73,7 +73,7 @@ fn mdata_04() {
     assert_eq!(stat.st_size, 0);
 }
 
-/// MDATA5: link
+/// mdata_05: link
 #[test]
 fn mdata_05() {
     let mut src = crate::test_dir();
@@ -98,7 +98,7 @@ fn mdata_05() {
     assert_eq!(dst_stat.st_nlink, 2);
 }
 
-/// MDATA6: symlink/readlink
+/// mdata_06: symlink/readlink
 #[test]
 fn mdata_06() {
     let mut src = crate::test_dir();
@@ -131,7 +131,7 @@ fn mdata_06() {
     assert!(path.ends_with("mdata_06_src.txt"));
 }
 
-/// MDATA7: rename
+/// mdata_07: rename
 #[test]
 fn mdata_07() {
     let mut src = crate::test_dir();
@@ -160,7 +160,7 @@ fn mdata_07() {
     assert_eq!(err, 0);
 }
 
-/// MDATA8: listxattr empty
+/// mdata_08: listxattr empty
 #[cfg(target_os = "macos")]
 #[test]
 fn mdata_08() {
@@ -172,7 +172,7 @@ fn mdata_08() {
     assert!(names.is_empty());
 }
 
-/// MDATA9: setxattr
+/// mdata_09: setxattr
 #[cfg(target_os = "macos")]
 #[test]
 fn mdata_09() {
@@ -200,7 +200,7 @@ fn mdata_09() {
     assert_eq!(names, &["foo"]);
 }
 
-/// MDATA10: getxattr missing
+/// mdata_10: getxattr missing
 #[cfg(target_os = "macos")]
 #[test]
 fn mdata_10() {
@@ -227,7 +227,7 @@ fn mdata_10() {
     assert_eq!(crate::errno(), libc::ENOATTR);
 }
 
-/// MDATA11: getxattr
+/// mdata_11: getxattr
 #[cfg(target_os = "macos")]
 #[test]
 fn mdata_11() {
@@ -272,7 +272,7 @@ fn mdata_11() {
     assert_eq!(value, "bar");
 }
 
-/// MDATA12: removexattr
+/// mdata_12: removexattr
 #[cfg(target_os = "macos")]
 #[test]
 fn mdata_12() {

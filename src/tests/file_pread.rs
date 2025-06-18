@@ -2,7 +2,7 @@ use rand::prelude::*;
 
 use super::DATA_SIZE;
 
-// PREAD1: Read a file 13 bytes at a time and check EOF behavior
+/// pread_01: Read a file 13 bytes at a time and check EOF behavior
 #[test]
 fn pread_01() {
     let mut path = crate::test_dir();
@@ -52,7 +52,7 @@ fn pread_01() {
     assert_eq!(err, 0);
 }
 
-// PREAD2: Read 13 bytes at a time in two separate threads.
+/// pread_02: Read 13 bytes at a time in two separate threads.
 #[test]
 fn pread_02() {
     let mut path = crate::test_dir();
@@ -109,7 +109,7 @@ fn pread_02() {
     assert_eq!(err, 0);
 }
 
-/// PREAD3: Two threads read 13 bytes at a time using the same fd
+/// pread_03: Two threads read 13 bytes at a time using the same fd
 #[test]
 fn pread_03() {
     let mut path = crate::test_dir();
@@ -169,7 +169,7 @@ fn pread_03() {
     assert_eq!(err, 0);
 }
 
-/// PREAD4: Two threads read 13 bytes at a time, using different fds
+/// pread_04: Two threads read 13 bytes at a time, using different fds
 #[test]
 fn pread_04() {
     let mut path = crate::test_dir();
@@ -237,7 +237,7 @@ fn pread_04() {
     t2.join().unwrap();
 }
 
-/// PREAD5: Read beyond EOF
+/// pread_05: Read beyond EOF
 #[test]
 fn pread_05() {
     let mut path = crate::test_dir();
@@ -267,7 +267,7 @@ fn pread_05() {
     assert_eq!(err, 0);
 }
 
-/// PREAD6: Error reading directory
+/// pread_06: Error reading directory
 #[test]
 fn pread_06() {
     let mut path = crate::test_dir();
@@ -287,7 +287,7 @@ fn pread_06() {
     assert_eq!(err, 0);
 }
 
-/// PREAD8: EINVAL for pread with a negative offset
+/// pread_08: EINVAL for pread with a negative offset
 #[test]
 fn pread_08() {
     let mut path = crate::test_dir();

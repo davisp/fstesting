@@ -3,7 +3,7 @@ use rand::prelude::*;
 use super::DATA_SIZE;
 use crate::file_size;
 
-// WRITE1: Write file linearly
+/// write_01: Write file linearly
 #[test]
 fn write_01() {
     let mut path = crate::test_dir();
@@ -50,7 +50,7 @@ fn write_01() {
     assert_eq!(file_size(&mut path), DATA_SIZE);
 }
 
-/// WRITE2: Create empty file, open and write linearly
+/// write_02: Create empty file, open and write linearly
 #[test]
 fn write_02() {
     let mut path = crate::test_dir();
@@ -103,7 +103,7 @@ fn write_02() {
     assert_eq!(size, DATA_SIZE);
 }
 
-// WRITE3: Write file, rewrite first half
+/// write_03: Write file, rewrite first half
 #[test]
 fn write_03() {
     let mut path = crate::test_dir();
@@ -164,7 +164,7 @@ fn write_03() {
     assert_eq!(size, DATA_SIZE);
 }
 
-/// WRITE4: Write half, close, open, rewrite second half.
+/// write_04: Write half, close, open, rewrite second half.
 #[test]
 fn write_04() {
     let mut path = crate::test_dir();
@@ -228,7 +228,7 @@ fn write_04() {
     assert_eq!(size, DATA_SIZE);
 }
 
-/// WRITE5: Write half, reopen, write second half
+/// write_05: Write half, reopen, write second half
 #[test]
 fn write_05() {
     let mut path = crate::test_dir();
@@ -297,7 +297,7 @@ fn write_05() {
     assert_eq!(size, DATA_SIZE);
 }
 
-/// WRITE6: Interleaved writes
+/// write_06: Interleaved writes
 #[test]
 fn write_06() {
     let mut path = crate::test_dir();
@@ -372,7 +372,7 @@ fn write_06() {
     assert_eq!(size, DATA_SIZE);
 }
 
-/// WRITE7: Write file backwards
+/// write_07: Write file backwards
 #[test]
 fn write_07() {
     let mut path = crate::test_dir();
@@ -428,7 +428,7 @@ fn write_07() {
     assert_eq!(size, DATA_SIZE);
 }
 
-/// WRITE8: write scattered positions
+/// write_08: write scattered positions
 #[test]
 fn write_08() {
     let mut path = crate::test_dir();
@@ -489,7 +489,7 @@ fn write_08() {
     assert_eq!(size, DATA_SIZE);
 }
 
-/// WRITE9: Parallel writes to same fd
+/// write_09: Parallel writes to same fd
 #[test]
 fn write_09() {
     let mut path = crate::test_dir();
@@ -556,7 +556,7 @@ fn write_09() {
     assert_eq!(size, DATA_SIZE);
 }
 
-/// WRITE10: Parallel writes to separate fds
+/// write_10: Parallel writes to separate fds
 #[test]
 fn write_10() {
     let mut path = crate::test_dir();
@@ -654,7 +654,7 @@ fn write_10() {
     assert_eq!(size, DATA_SIZE);
 }
 
-/// WRITE11: Check append only with truncate and write
+/// write_11: Check append only with truncate and write
 #[test]
 fn write_11() {
     let mut path = crate::test_dir();
@@ -691,7 +691,7 @@ fn write_11() {
     assert_eq!(st.st_size, 2048);
 }
 
-/// WRITE12: Observer writes through separate fd
+/// write_12: Observer writes through separate fd
 #[test]
 fn write_12() {
     let mut path = crate::test_dir();

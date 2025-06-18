@@ -10,7 +10,7 @@ FAIL = "\u274c"
 
 def main():
     if len(sys.argv) != 2:
-        print("usage: {sys.argv[0]} DIRECTORY");
+        print("usage: {sys.argv[0]} RESULTS_DIRECTORY");
         exit(1)
 
     results = {}

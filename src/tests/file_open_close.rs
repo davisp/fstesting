@@ -433,7 +433,7 @@ pub mod linux_open_exist_rw {
     }
 }
 
-/// OPEN1: Open new file with O_CREAT | O_EXCL
+/// open_01: Open new file with O_CREAT | O_EXCL
 #[test]
 fn open_01() {
     let mut path = crate::test_dir();
@@ -452,7 +452,7 @@ fn open_01() {
     assert_eq!(err, 0);
 }
 
-/// OPEN2: Fail opening with O_CREAT | O_EXCL when the file already exists
+/// open_02: Fail opening with O_CREAT | O_EXCL when the file already exists
 #[test]
 fn open_02() {
     let mut path = crate::test_dir();

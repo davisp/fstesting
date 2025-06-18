@@ -1,4 +1,4 @@
-/// DIRS1: mkdir
+/// dirs_01: mkdir
 #[test]
 fn dirs_01() {
     let mut dir = crate::test_dir();
@@ -13,7 +13,7 @@ fn dirs_01() {
     }
 }
 
-/// DIRS2: opendir/closedir
+/// dirs_02: opendir/closedir
 #[test]
 fn dirs_02() {
     let mut dir = crate::test_dir();
@@ -29,7 +29,7 @@ fn dirs_02() {
     assert_eq!(err, 0);
 }
 
-/// DIRS3: readdir
+/// dirs_03: readdir
 #[test]
 fn dirs_03() {
     let mut dir = crate::test_dir();
@@ -77,7 +77,7 @@ fn dirs_03() {
     assert_eq!(found, names);
 }
 
-/// DIRS4: rmdir
+/// dirs_04: rmdir
 #[test]
 fn dirs_04() {
     let mut dir = crate::test_dir();
@@ -85,7 +85,7 @@ fn dirs_04() {
     assert_eq!(err, 0);
 }
 
-/// DIRS5: fsync directory
+/// dirs_05: fsync directory
 #[test]
 fn dirs_05() {
     let mut dir = crate::test_dir();
@@ -100,7 +100,7 @@ fn dirs_05() {
     assert_eq!(err, 0);
 }
 
-/// DIRS6: error creating file in non-executable directory
+/// dirs_06: error creating file in non-executable directory
 #[test]
 fn dirs_06() {
     let mut dir = crate::test_dir();
@@ -124,7 +124,7 @@ fn dirs_06() {
     assert_eq!(crate::errno(), libc::EACCES);
 }
 
-/// DIRS7: fdatasync directory
+/// dirs_07: fdatasync directory
 #[cfg(target_os = "linux")]
 #[test]
 fn dirs_07() {

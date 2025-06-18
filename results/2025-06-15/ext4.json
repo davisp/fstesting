@@ -530,7 +530,7 @@
 { "type": "test", "name": "tests::file_pread::pread_04", "event": "ok" }
 { "type": "test", "event": "started", "name": "tests::file_pwrite::pwrite_16" }
 { "type": "test", "name": "tests::file_pwrite::pwrite_16", "event": "ok" }
-{ "type": "test", "event": "started", "name": "tests::file_pwrite::pwrite_303" }
+{ "type": "test", "event": "started", "name": "tests::file_pwrite::pwrite_03" }
 { "type": "test", "name": "tests::file_pwrite::pwrite_07", "event": "ok" }
 { "type": "test", "event": "started", "name": "tests::file_read::read_01" }
 { "type": "test", "name": "tests::file_pwrite::pwrite_08", "event": "ok" }
@@ -577,7 +577,7 @@
 { "type": "test", "event": "started", "name": "tests::properties::mdata_07" }
 { "type": "test", "name": "tests::properties::mdata_07", "event": "ok" }
 { "type": "test", "event": "started", "name": "tests::special::statfs" }
-{ "type": "test", "name": "tests::file_pwrite::pwrite_303", "event": "ok" }
+{ "type": "test", "name": "tests::file_pwrite::pwrite_03", "event": "ok" }
 { "type": "test", "name": "tests::special::statfs", "event": "ok" }
 { "type": "test", "name": "tests::file_pwrite::pwrite_13", "event": "ok" }
 { "type": "test", "name": "tests::file_pwrite::pwrite_06", "event": "ok" }

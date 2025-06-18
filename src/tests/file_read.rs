@@ -1,6 +1,6 @@
 use super::DATA_SIZE;
 
-/// READ1: Read a file 13 bytes at a time and check correct EOF behavior.
+/// read_01: Read a file 13 bytes at a time and check correct EOF behavior.
 #[test]
 fn read_01() {
     let mut path = crate::test_dir();
@@ -49,7 +49,7 @@ fn read_01() {
     assert_eq!(err, 0);
 }
 
-/// READ2: Read beyond EOF
+/// read_02: Read beyond EOF
 #[test]
 fn read_02() {
     let mut path = crate::test_dir();
@@ -71,7 +71,7 @@ fn read_02() {
     assert_eq!(err, 0);
 }
 
-/// READ3: Check for error when attempting to read a directory fd
+/// read_03: Check for error when attempting to read a directory fd
 #[test]
 fn read_03() {
     let mut path = crate::test_dir();

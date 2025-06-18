@@ -1,6 +1,6 @@
 use std::sync::mpsc;
 
-/// UNLINK1: Simple unlink / file deletion
+/// unlink_01: Simple unlink / file deletion
 #[test]
 fn unlink_01() {
     let mut path = crate::test_dir();
@@ -18,7 +18,7 @@ fn unlink_01() {
     assert_eq!(crate::errno(), libc::ENOENT);
 }
 
-// UNLINK2: One hard link keeps file alive
+/// unlink_02: One hard link keeps file alive
 #[test]
 fn unlink_02() {
     let mut path_src = crate::test_dir();
@@ -53,7 +53,7 @@ fn unlink_02() {
     assert_eq!(err, -1);
 }
 
-// UNLINK3: Unlink on symlink target leaves symlink dangling
+/// unlink_03: Unlink on symlink target leaves symlink dangling
 #[test]
 fn unlink_03() {
     let mut path_src = crate::test_dir();
@@ -84,7 +84,7 @@ fn unlink_03() {
     assert_eq!(stat.st_nlink, 1);
 }
 
-// UNLINK4: Unlink does not close/affect an open fd
+/// unlink_04: Unlink does not close/affect an open fd
 #[test]
 fn unlink_04() {
     let mut path = crate::test_dir();
@@ -139,7 +139,7 @@ fn unlink_04() {
     assert_eq!(crate::errno(), libc::ENOENT);
 }
 
-// SYMLINK1: Open file through symlink
+/// symlink_01: Open file through symlink
 #[test]
 fn symlink_01() {
     let mut path_src = crate::test_dir();
@@ -177,7 +177,7 @@ fn symlink_01() {
     assert_eq!(stat.st_nlink, 1);
 }
 
-// TRUNCATE1: Simple truncate to empty file
+/// truncate_01: Simple truncate to empty file
 #[test]
 fn truncate_01() {
     let mut path = crate::test_dir();
@@ -199,7 +199,7 @@ fn truncate_01() {
     assert_eq!(crate::read_file(&mut path), "");
 }
 
-// TRUNCATE2: Truncate to extent fill
+/// truncate_02: Truncate to extent fill
 #[test]
 fn truncate_02() {
     let mut path = crate::test_dir();
@@ -211,7 +211,7 @@ fn truncate_02() {
     assert_eq!(err, 0);
 }
 
-// TRUMCATE3: Truncate on read-only file
+/// truncate_03: Truncate on read-only file
 #[test]
 fn truncate_03() {
     let mut path = crate::test_dir();
@@ -224,7 +224,7 @@ fn truncate_03() {
     assert_eq!(crate::errno(), libc::EACCES);
 }
 
-// SEEK1: Simple move for reads
+/// seek_01: Simple move for reads
 #[test]
 fn seek_01() {
     let mut path = crate::test_dir();
@@ -251,7 +251,7 @@ fn seek_01() {
     assert_eq!(err, 0);
 }
 
-// SEEK2: Error moving before 0
+/// seek_02: Error moving before 0
 #[test]
 fn seek_02() {
     let mut path = crate::test_dir();
@@ -270,7 +270,7 @@ fn seek_02() {
     assert_eq!(err, 0);
 }
 
-// SEEK3: seek beyond eof and write extends file
+/// seek_03: seek beyond eof and write extends file
 #[test]
 fn seek_03() {
     let mut path = crate::test_dir();
@@ -300,7 +300,7 @@ fn seek_03() {
     assert_eq!(err, 0);
 }
 
-// SEEK4: Show seek beyond eof does not allocate space
+/// seek_04: Show seek beyond eof does not allocate space
 #[test]
 fn seek_04() {
     let mut path = crate::test_dir();
@@ -332,7 +332,7 @@ fn seek_04() {
     assert_eq!(err, 0);
 }
 
-// FALLOC1: Create file of zeros
+/// falloc_01: Create file of zeros
 #[cfg(target_os = "macos")]
 #[test]
 fn falloc_01() {
@@ -365,7 +365,7 @@ fn falloc_01() {
     assert_eq!(err, 0);
 }
 
-// FALLOC1: Create file of zeros
+/// falloc_01: Create file of zeros
 #[cfg(target_os = "linux")]
 #[test]
 fn falloc_01() {
@@ -386,7 +386,7 @@ fn falloc_01() {
     assert_eq!(err, 0);
 }
 
-// FALLOC2: Extend file with zeros
+/// falloc_02: Extend file with zeros
 #[cfg(target_os = "macos")]
 #[test]
 fn falloc_02() {
@@ -449,13 +449,13 @@ fn falloc_02() {
     assert_eq!(err, 0);
 }
 
-// Skipping these for now.
-// FALLOC3: Punch hole - region is filled with zeroes
-// FALLOC4: Collapse range - Remove middle of file
-// FALLOC5: Zero range
-// FALLOC6: Insert range
+/// Skipping these for now.
+/// falloc_03: Punch hole - region is filled with zeroes
+/// falloc_04: Collapse range - Remove middle of file
+/// falloc_05: Zero range
+/// falloc_06: Insert range
 
-// FCNTL1: F_DUPFD
+/// fcntl_01: F_DUPFD
 #[test]
 fn fcntl_01() {
     let mut path = crate::test_dir();
@@ -476,7 +476,7 @@ fn fcntl_01() {
     assert_eq!(err, 0);
 }
 
-// FCNTL2: F_GETFD
+/// fcntl_02: F_GETFD
 #[test]
 fn fcntl_02() {
     let mut path = crate::test_dir();
@@ -495,7 +495,7 @@ fn fcntl_02() {
     assert_eq!(err, 0);
 }
 
-// FCNTL3: F_SETFD
+/// fcntl_03: F_SETFD
 #[test]
 fn fcntl_03() {
     let mut path = crate::test_dir();
@@ -519,7 +519,7 @@ fn fcntl_03() {
     assert_eq!(err, 0);
 }
 
-// FCNTL4: F_GETFL
+/// fcntl_04: F_GETFL
 #[test]
 fn fcntl_04() {
     let mut path = crate::test_dir();
@@ -538,7 +538,7 @@ fn fcntl_04() {
     assert_eq!(err, 0);
 }
 
-// FCNTL5: F_SETFL
+/// fcntl_05: F_SETFL
 #[test]
 fn fcntl_05() {
     let mut path = crate::test_dir();
@@ -562,7 +562,7 @@ fn fcntl_05() {
     assert_eq!(err, 0);
 }
 
-// FLOCK1: LOCK_SH
+/// flock_01: LOCK_SH
 #[test]
 fn flock_01() {
     let mut path = crate::test_dir();
@@ -587,7 +587,7 @@ fn flock_01() {
     assert_eq!(err, 0);
 }
 
-// FLOCK2: LOCK_EX
+/// flock_02: LOCK_EX
 #[test]
 fn flock_02() {
     let mut path = crate::test_dir();
@@ -612,7 +612,7 @@ fn flock_02() {
     assert_eq!(err, 0);
 }
 
-// FLOCK3: LOCK_SH with existing LOCK_EX
+/// flock_03: LOCK_SH with existing LOCK_EX
 #[test]
 fn flock_03() {
     let mut path = crate::test_dir();
@@ -649,7 +649,7 @@ fn flock_03() {
     assert_eq!(err, 0);
 }
 
-// FLOCK4: LOCK_EX with existing LOCK_SH
+/// flock_04: LOCK_EX with existing LOCK_SH
 #[test]
 fn flock_04() {
     let mut path = crate::test_dir();
@@ -689,7 +689,7 @@ fn flock_04() {
     assert_eq!(err, 0);
 }
 
-// FLOCK5: LOCK_EX with existing LOCK_EX
+/// flock_05: LOCK_EX with existing LOCK_EX
 #[test]
 fn flock_05() {
     let mut path = crate::test_dir();
@@ -729,7 +729,7 @@ fn flock_05() {
     assert_eq!(err, 0);
 }
 
-// FLOCK6: LOCK_SH to LOCK_EX
+/// flock_06: LOCK_SH to LOCK_EX
 #[test]
 fn flock_06() {
     let mut path = crate::test_dir();
@@ -757,7 +757,7 @@ fn flock_06() {
     assert_eq!(err, 0);
 }
 
-// FLOCK7: LOCK_EX to LOCK_SH
+/// flock_07: LOCK_EX to LOCK_SH
 #[test]
 fn flock_07() {
     let mut path = crate::test_dir();
@@ -785,7 +785,7 @@ fn flock_07() {
     assert_eq!(err, 0);
 }
 
-// FSYNC1: empty file
+/// fsync_01: empty file
 #[test]
 fn fsync_01() {
     let mut path = crate::test_dir();
@@ -807,7 +807,7 @@ fn fsync_01() {
     assert_eq!(err, 0);
 }
 
-// FSYNC2: after write
+/// fsync_02: after write
 #[test]
 fn fsync_02() {
     let mut path = crate::test_dir();
@@ -835,7 +835,7 @@ fn fsync_02() {
     assert_eq!(err, 0);
 }
 
-// FSYNC3: every MiB writing multi-MiB file
+/// fsync_03: every MiB writing multi-MiB file
 #[test]
 fn fsync_03() {
     let mut path = crate::test_dir();
@@ -865,7 +865,7 @@ fn fsync_03() {
     assert_eq!(err, 0);
 }
 
-// FSYNC4: fsync from separate thread
+/// fsync_04: fsync from separate thread
 #[test]
 fn fsync_04() {
     let mut path = crate::test_dir();
@@ -918,7 +918,7 @@ fn fsync_04() {
     assert_eq!(err, 0);
 }
 
-// FSYNC5: fsync on read-only file
+/// fsync_05: fsync on read-only file
 #[test]
 fn fsync_05() {
     let mut path = crate::test_dir();
@@ -936,7 +936,7 @@ fn fsync_05() {
     assert_eq!(err, 0);
 }
 
-// FSYNC6: macOS specific fcntl for stronger durability guarantees
+/// fsync_06: macOS specific fcntl for stronger durability guarantees
 #[cfg(target_os = "macos")]
 #[test]
 fn fsync_06() {
@@ -959,7 +959,7 @@ fn fsync_06() {
     assert_eq!(err, 0);
 }
 
-// FADVISE1: NORMAL
+/// fadvise_01: NORMAL
 #[cfg(target_os = "linux")]
 #[test]
 fn fadvise_01() {
@@ -980,7 +980,7 @@ fn fadvise_01() {
     assert_eq!(err, 0);
 }
 
-// FADVISE2: SEQUENTIAL
+/// fadvise_02: SEQUENTIAL
 #[cfg(target_os = "linux")]
 #[test]
 fn fadvise_02() {
@@ -1002,7 +1002,7 @@ fn fadvise_02() {
     assert_eq!(err, 0);
 }
 
-// FADVISE3: RANDOM
+/// fadvise_03: RANDOM
 #[cfg(target_os = "linux")]
 #[test]
 fn fadvise_03() {
@@ -1023,7 +1023,7 @@ fn fadvise_03() {
     assert_eq!(err, 0);
 }
 
-// FADVISE4: NOREUSE
+/// fadvise_04: NOREUSE
 #[cfg(target_os = "linux")]
 #[test]
 fn fadvise_04() {
@@ -1044,7 +1044,7 @@ fn fadvise_04() {
     assert_eq!(err, 0);
 }
 
-// FADVISE5: WILLNEED
+/// fadvise_05: WILLNEED
 #[cfg(target_os = "linux")]
 #[test]
 fn fadvise_05() {
@@ -1065,7 +1065,7 @@ fn fadvise_05() {
     assert_eq!(err, 0);
 }
 
-// FADVISE6: DONTNEED
+/// fadvise_06: DONTNEED
 #[cfg(target_os = "linux")]
 #[test]
 fn fadvise_06() {
@@ -1086,7 +1086,7 @@ fn fadvise_06() {
     assert_eq!(err, 0);
 }
 
-// CPRANGE1: Copy whole file to EOF
+/// cprange_01: Copy whole file to EOF
 #[cfg(target_os = "linux")]
 #[test]
 fn cprange_01() {
@@ -1114,7 +1114,7 @@ fn cprange_01() {
     assert_eq!(err, 0);
 }
 
-// CPRANGE2: Copy middle of file to new file
+/// cprange_02: Copy middle of file to new file
 #[cfg(target_os = "linux")]
 #[test]
 fn cprange_02() {

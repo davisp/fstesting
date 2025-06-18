@@ -5,7 +5,7 @@ use rand::seq::SliceRandom;
 use super::DATA_SIZE;
 use crate::file_size;
 
-// PWRITE1: Write file linearly
+/// pwrite_01: Write file linearly
 #[test]
 fn pwrite_01() {
     let mut path = crate::test_dir();
@@ -54,7 +54,7 @@ fn pwrite_01() {
     assert_eq!(file_size(&mut path), DATA_SIZE);
 }
 
-/// PWRITE2: Create empty file, open and write linearly
+/// pwrite_02: Create empty file, open and write linearly
 #[test]
 fn pwrite_02() {
     let mut path = crate::test_dir();
@@ -109,7 +109,7 @@ fn pwrite_02() {
     assert_eq!(size, DATA_SIZE);
 }
 
-// PWRITE3: Write file, rewrite first half
+/// pwrite_03: Write file, rewrite first half
 #[test]
 fn pwrite_03() {
     let mut path = crate::test_dir();
@@ -173,7 +173,7 @@ fn pwrite_03() {
     assert_eq!(size, DATA_SIZE);
 }
 
-/// PWRITE4: Write half, close, open, rewrite second half.
+/// pwrite_04: Write half, close, open, rewrite second half.
 #[test]
 fn pwrite_04() {
     let mut path = crate::test_dir();
@@ -243,7 +243,7 @@ fn pwrite_04() {
     assert_eq!(size, DATA_SIZE);
 }
 
-/// PWRITE5: Write half, reopen, write second half
+/// pwrite_05: Write half, reopen, write second half
 #[test]
 fn pwrite_05() {
     let mut path = crate::test_dir();
@@ -310,7 +310,7 @@ fn pwrite_05() {
     assert_eq!(size, DATA_SIZE);
 }
 
-/// PWRITE6: Interleaved writes
+/// pwrite_06: Interleaved writes
 #[test]
 fn pwrite_06() {
     let mut path = crate::test_dir();
@@ -376,7 +376,7 @@ fn pwrite_06() {
     assert_eq!(size, DATA_SIZE);
 }
 
-/// PWRITE7: Write file backwards
+/// pwrite_07: Write file backwards
 #[test]
 fn pwrite_07() {
     let mut path = crate::test_dir();
@@ -425,7 +425,7 @@ fn pwrite_07() {
     assert_eq!(size, DATA_SIZE);
 }
 
-/// PWRITE8: Scattered writes
+/// pwrite_08: Scattered writes
 #[test]
 fn pwrite_08() {
     let mut path = crate::test_dir();
@@ -478,7 +478,7 @@ fn pwrite_08() {
     assert_eq!(file_size(&mut path), DATA_SIZE);
 }
 
-/// PWRITE9: Parallel writes to same fd
+/// pwrite_09: Parallel writes to same fd
 #[test]
 fn pwrite_09() {
     let mut path = crate::test_dir();
@@ -548,7 +548,7 @@ fn pwrite_09() {
     assert_eq!(size, DATA_SIZE);
 }
 
-/// PWRITE10: Parallel writes to separate fds
+/// pwrite_10: Parallel writes to separate fds
 #[test]
 fn pwrite_10() {
     let mut path = crate::test_dir();
@@ -644,7 +644,7 @@ fn pwrite_10() {
     assert_eq!(size, DATA_SIZE);
 }
 
-/// PWRITE11: parallel scattered writes same fd
+/// pwrite_11: parallel scattered writes same fd
 #[test]
 fn pwrite_11() {
     let mut path = crate::test_dir();
@@ -722,7 +722,7 @@ fn pwrite_11() {
     assert_eq!(size, DATA_SIZE);
 }
 
-/// PWRITE12: parallel scattered writes separate fds
+/// pwrite_12: parallel scattered writes separate fds
 #[test]
 fn pwrite_12() {
     let mut path = crate::test_dir();
@@ -826,7 +826,7 @@ fn pwrite_12() {
     assert_eq!(size, DATA_SIZE);
 }
 
-/// PWRITE13: Parallel overlapping writes with same contents
+/// pwrite_13: Parallel overlapping writes with same contents
 #[test]
 fn pwrite_13() {
     let mut path = crate::test_dir();
@@ -911,7 +911,7 @@ fn pwrite_13() {
     assert_eq!(size, DATA_SIZE);
 }
 
-/// PWRITE14: Parallel overlapping writes with different contents
+/// pwrite_14: Parallel overlapping writes with different contents
 #[test]
 fn pwrite_14() {
     let mut path = crate::test_dir();
@@ -996,7 +996,7 @@ fn pwrite_14() {
     assert_eq!(size, DATA_SIZE);
 }
 
-/// PWRITE15: pwrite unaffected by O_APPEND
+/// pwrite_15: pwrite unaffected by O_APPEND
 #[cfg(target_os = "macos")]
 #[test]
 fn pwrite_15() {
@@ -1029,7 +1029,7 @@ fn pwrite_15() {
     assert_eq!(st.st_size, 1024);
 }
 
-/// PWRITE16: pwrite *is* affected by O_APPEND
+/// pwrite_16: pwrite *is* affected by O_APPEND
 #[cfg(target_os = "linux")]
 #[test]
 fn pwrite_16() {

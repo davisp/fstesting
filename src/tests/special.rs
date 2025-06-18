@@ -1,5 +1,6 @@
+/// statfs_01: Check support for statfs
 #[test]
-fn statfs() {
+fn statfs_01() {
     let mut path = crate::test_dir();
 
     let stats = unsafe {
