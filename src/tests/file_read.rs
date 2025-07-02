@@ -32,13 +32,12 @@ fn read_01() {
         assert_eq!(bytes, "nopqrstuvwxyz".as_bytes());
     }
 
-    assert_eq!(DATA_SIZE % 26, 18);
-    let mut bytes = vec![0u8; 18];
+    let mut bytes = vec![0u8; DATA_SIZE % 26];
     let len = unsafe {
         libc::read(fd, bytes.as_mut_ptr() as *mut libc::c_void, bytes.len())
     };
-    assert_eq!(len, 18);
-    assert_eq!(bytes, "abcdefghijklmnopqr".as_bytes());
+    assert_eq!(len, (DATA_SIZE % 26) as isize);
+    assert_eq!(bytes, "abcdefghijklmnopqrstuvwxyz"[..(DATA_SIZE % 26)].as_bytes());
 
     let len = unsafe {
         libc::read(fd, bytes.as_mut_ptr() as *mut libc::c_void, bytes.len())

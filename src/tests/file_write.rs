@@ -59,7 +59,7 @@ fn write_02() {
     let fd = unsafe {
         crate::wrappers::open3(
             path.c_str(),
-            libc::O_RDONLY | libc::O_CREAT,
+            libc::O_WRONLY | libc::O_CREAT,
             libc::S_IRUSR | libc::S_IWUSR,
         )
     };

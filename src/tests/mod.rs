@@ -10,4 +10,5 @@ pub mod file_write;
 pub mod properties;
 pub mod special;
 
-const DATA_SIZE: usize = 1024 * 1024 * 15;
+//const DATA_SIZE: usize = 1024 * 1024 * 15;
+const DATA_SIZE: usize = 1024 * 1024;

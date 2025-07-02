@@ -113,7 +113,7 @@ fn pwrite_02() {
 #[test]
 fn pwrite_03() {
     let mut path = crate::test_dir();
-    path.push("pwrite_05.txt");
+    path.push("pwrite_03.txt");
 
     let fd = unsafe {
         crate::wrappers::open3(
@@ -380,7 +380,7 @@ fn pwrite_06() {
 #[test]
 fn pwrite_07() {
     let mut path = crate::test_dir();
-    path.push("pwrite_backwards.txt");
+    path.push("pwrite_07.txt");
 
     let fd = unsafe {
         crate::wrappers::open3(

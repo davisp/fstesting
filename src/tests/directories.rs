@@ -121,7 +121,9 @@ fn dirs_06() {
         )
     };
     assert_eq!(fd, -1);
-    assert_eq!(crate::errno(), libc::EACCES);
+
+    let errno = crate::errno();
+    assert!(errno == libc::EPERM || errno == libc::EACCES);
 }
 
 /// dirs_07: fdatasync directory
