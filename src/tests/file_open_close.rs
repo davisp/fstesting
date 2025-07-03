@@ -273,7 +273,7 @@ pub mod linux_open_exist_ro {
         open_exist_ro_36: (libc::O_WRONLY, libc::O_NOATIME, false, libc::EACCES),
         open_exist_ro_37: (libc::O_WRONLY, libc::O_NOCTTY, false, libc::EACCES),
         open_exist_ro_38: (libc::O_WRONLY, libc::O_NDELAY, false, libc::EACCES),
-        open_exist_ro_39: (libc::O_WRONLY, libc::O_PATH, true, libc::EACCES),
+        open_exist_ro_39: (libc::O_WRONLY, libc::O_PATH, true, 0),
         open_exist_ro_40: (libc::O_WRONLY, libc::O_SYNC, false, libc::EACCES),
         open_exist_ro_41: (libc::O_WRONLY, libc::O_TMPFILE, false, libc::ENOTDIR),
         open_exist_ro_42: (libc::O_RDWR, libc::O_ASYNC, false, libc::EACCES),

@@ -69,3 +69,5 @@ mount-s3 \
  --endpoint-url http://localhost:9999/ \
  default-bucket \
  ./mountpoint
+
+mount-s3 -f --force-path-style --allow-other --allow-delete --no-sign-request --endpoint-url http://localhost:8181/v4/files/     --x-tiledb-rest-api-key $TOKEN --prefix teamspace/ workspace mountpoint/ --allow-overwrite -d --incremental-upload
