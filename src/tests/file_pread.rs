@@ -21,6 +21,7 @@ fn pread_01() {
 
     for idx in (0..DATA_SIZE).step_by(26) {
         let mut bytes = vec![0u8; 13];
+        let tail = std::cmp::min(13, DATA_SIZE - idx);
         let len = unsafe {
             libc::pread(
                 fd,
@@ -29,20 +30,31 @@ fn pread_01() {
                 idx as i64,
             )
         };
-        assert_eq!(len, 13);
-        assert_eq!(bytes, "abcdefghijklm".as_bytes());
+        let should_read = std::cmp::min(13, DATA_SIZE - idx);
+        assert_eq!(len, should_read as isize);
+        assert_eq!(
+            &bytes[..should_read],
+            "abcdefghijklm"[..should_read].as_bytes()
+        );
 
-        let tail = std::cmp::min(13, DATA_SIZE - idx);
+        if (idx + 13) > DATA_SIZE {
+            break;
+        }
+
         let len = unsafe {
             libc::pread(
                 fd,
                 bytes.as_mut_ptr() as *mut libc::c_void,
                 bytes.len(),
-                tail as i64,
+                (idx + 13) as i64,
             )
         };
-        assert_eq!(len, tail as isize);
-        assert_eq!(bytes, "nopqrstuvwxyz"[..tail].as_bytes());
+        let should_read = std::cmp::min(13, DATA_SIZE - idx);
+        assert_eq!(len, should_read as isize);
+        assert_eq!(
+            &bytes[..should_read],
+            "nopqrstuvwxyz"[..should_read].as_bytes()
+        );
     }
 
     let pos = unsafe { libc::lseek(fd, 0, libc::SEEK_SET) };
@@ -80,25 +92,32 @@ fn pread_02() {
                     idx as i64,
                 )
             };
-            assert_eq!(len, 13);
-            assert_eq!(bytes, "abcdefghijklm".as_bytes());
+            let should_read = std::cmp::min(13, DATA_SIZE - idx);
+            assert_eq!(len, should_read as isize);
+            assert_eq!(
+                &bytes[..should_read],
+                "abcdefghijklm"[..should_read].as_bytes()
+            );
         }
     });
 
     let t2 = std::thread::spawn(move || {
         let mut bytes = vec![0u8; 13];
-        for idx in (0..DATA_SIZE).step_by(26) {
-            let tail = std::cmp::min(13, DATA_SIZE - idx);
+        for idx in (13..DATA_SIZE).step_by(26) {
             let len = unsafe {
                 libc::pread(
                     fd,
                     bytes.as_mut_ptr() as *mut libc::c_void,
                     bytes.len(),
-                    tail as i64,
+                    idx as i64,
                 )
             };
-            assert_eq!(len, tail as isize);
-            assert_eq!(bytes, "nopqrstuvwxyz"[..tail].as_bytes());
+            let should_read = std::cmp::min(13, DATA_SIZE - idx);
+            assert_eq!(len, should_read as isize);
+            assert_eq!(
+                &bytes[..should_read],
+                "nopqrstuvwxyz"[..should_read].as_bytes()
+            );
         }
     });
 
@@ -139,8 +158,12 @@ fn pread_03() {
                     (pos * 26) as i64,
                 )
             };
-            assert_eq!(len, 13);
-            assert_eq!(bytes, "abcdefghijklm".as_bytes());
+            let should_read = std::cmp::min(13, DATA_SIZE - (pos * 26));
+            assert_eq!(len, should_read as isize);
+            assert_eq!(
+                &bytes[..should_read],
+                "abcdefghijklm"[..should_read].as_bytes()
+            );
         }
     });
 
@@ -157,8 +180,12 @@ fn pread_03() {
                     ((pos * 26) + 13) as i64,
                 )
             };
-            assert_eq!(len, 13);
-            assert_eq!(bytes, "nopqrstuvwxyz".as_bytes());
+            let should_read = std::cmp::min(13, DATA_SIZE - ((pos * 26) + 13));
+            assert_eq!(len, should_read as isize);
+            assert_eq!(
+                &bytes[..should_read],
+                "nopqrstuvwxyz"[..should_read].as_bytes()
+            );
         }
     });
 
@@ -200,8 +227,12 @@ fn pread_04() {
                     (pos * 26) as i64,
                 )
             };
-            assert_eq!(len, 13);
-            assert_eq!(bytes, "abcdefghijklm".as_bytes());
+            let should_read = std::cmp::min(13, DATA_SIZE - (pos * 26));
+            assert_eq!(len, should_read as isize);
+            assert_eq!(
+                &bytes[..should_read],
+                "abcdefghijklm"[..should_read].as_bytes()
+            );
         }
 
         let err = unsafe { libc::close(fd) };
@@ -225,8 +256,12 @@ fn pread_04() {
                     ((pos * 26) + 13) as i64,
                 )
             };
-            assert_eq!(len, 13);
-            assert_eq!(bytes, "nopqrstuvwxyz".as_bytes());
+            let should_read = std::cmp::min(13, DATA_SIZE - ((pos * 26) + 13));
+            assert_eq!(len, should_read as isize);
+            assert_eq!(
+                &bytes[..should_read],
+                "nopqrstuvwxyz"[..should_read].as_bytes()
+            );
         }
 
         let err = unsafe { libc::close(fd) };
