@@ -224,6 +224,60 @@ fn truncate_03() {
     assert_eq!(crate::errno(), libc::EACCES);
 }
 
+/// truncate_04: Truncate longer does not return previous file contents
+#[test]
+fn truncate_04() {
+    let mut path = crate::test_dir();
+    path.push("write_01.txt");
+
+    let fd = unsafe {
+        crate::wrappers::open3(
+            path.c_str(),
+            libc::O_RDWR | libc::O_CREAT,
+            libc::S_IRUSR | libc::S_IWUSR,
+        )
+    };
+    assert!(fd > 0);
+
+    let bytes = "Hello, World!";
+    let len = unsafe {
+        libc::write(
+            fd,
+            bytes.as_bytes().as_ptr() as *const libc::c_void,
+            bytes.len(),
+        )
+    };
+    assert_eq!(len, bytes.len() as isize);
+
+    let err = unsafe { libc::ftruncate(fd, 5) };
+    assert_eq!(err, 0);
+
+    let offset = unsafe { libc::lseek(fd, 0, libc::SEEK_SET) };
+    assert_eq!(offset, 0);
+
+    let mut data = vec![0u8; 512];
+    let len = unsafe {
+        libc::read(fd, data.as_mut_ptr() as *mut libc::c_void, data.len())
+    };
+    assert_eq!(len, 5);
+    assert_eq!(&data[..5], "Hello".as_bytes());
+
+    let err = unsafe { libc::ftruncate(fd, 30) };
+    assert_eq!(err, 0);
+
+    let offset = unsafe { libc::lseek(fd, 0, libc::SEEK_SET) };
+    assert_eq!(offset, 0);
+
+    let len = unsafe {
+        libc::read(fd, data.as_mut_ptr() as *mut libc::c_void, data.len())
+    };
+    assert_eq!(len, 30);
+    assert_ne!(&data[..13], "Hello, World!".as_bytes());
+
+    let err = unsafe { libc::close(fd) };
+    assert_eq!(err, 0);
+}
+
 /// seek_01: Simple move for reads
 #[test]
 fn seek_01() {
@@ -379,11 +433,11 @@ fn falloc_02() {
     assert_eq!(err, 0);
 }
 
-/// Skipping these for now.
-/// falloc_03: Punch hole - region is filled with zeroes
-/// falloc_04: Collapse range - Remove middle of file
-/// falloc_05: Zero range
-/// falloc_06: Insert range
+// Skipping these for now.
+// falloc_03: Punch hole - region is filled with zeroes
+// falloc_04: Collapse range - Remove middle of file
+// falloc_05: Zero range
+// falloc_06: Insert range
 
 /// fcntl_01: F_DUPFD
 #[test]

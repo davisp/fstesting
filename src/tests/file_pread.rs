@@ -21,7 +21,6 @@ fn pread_01() {
 
     for idx in (0..DATA_SIZE).step_by(26) {
         let mut bytes = vec![0u8; 13];
-        let tail = std::cmp::min(13, DATA_SIZE - idx);
         let len = unsafe {
             libc::pread(
                 fd,
