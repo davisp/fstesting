@@ -660,26 +660,7 @@ fn write_11() {
     let mut path = crate::test_dir();
     path.push("write_11.txt");
 
-    let fd = unsafe {
-        crate::wrappers::open3(
-            path.c_str(),
-            libc::O_WRONLY | libc::O_CREAT,
-            libc::S_IRUSR | libc::S_IWUSR,
-        )
-    };
-    assert!(fd > 0);
-
-    let size = unsafe {
-        libc::write(
-            fd,
-            "Hello, world!".as_bytes().as_ptr() as *const libc::c_void,
-            13,
-        )
-    };
-    assert_eq!(size, 13);
-
-    let err = unsafe { libc::close(fd) };
-    assert_eq!(err, 0);
+    crate::create_file_rw(&mut path, "Hello, World!".as_bytes());
 
     let fd = unsafe {
         libc::open(path.c_str(), libc::O_RDWR | libc::O_APPEND | libc::O_TRUNC)
@@ -713,22 +694,7 @@ fn write_12() {
     let mut path = crate::test_dir();
     path.push("write_12.txt");
 
-    let fd = unsafe {
-        crate::wrappers::open3(
-            path.c_str(),
-            libc::O_WRONLY | libc::O_CREAT,
-            libc::S_IRUSR | libc::S_IWUSR,
-        )
-    };
-    assert!(fd > 0);
-
-    let size = unsafe {
-        libc::write(fd, [0u8].as_bytes().as_ptr() as *const libc::c_void, 13)
-    };
-    assert_eq!(size, 13);
-
-    let err = unsafe { libc::close(fd) };
-    assert_eq!(err, 0);
+    crate::create_file_rw(&mut path, &[0u8]);
 
     let mut p1 = path.clone();
     let t1 = std::thread::spawn(move || {

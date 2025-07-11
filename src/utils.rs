@@ -2,12 +2,16 @@ use crate::test_path::TestPath;
 use crate::wrappers;
 
 pub fn create_file(path: &mut TestPath, data: &[u8]) {
+    create_file_impl(path, data, libc::S_IRUSR);
+}
+
+pub fn create_file_rw(path: &mut TestPath, data: &[u8]) {
+    create_file_impl(path, data, libc::S_IRUSR | libc::S_IWUSR);
+}
+
+pub fn create_file_impl(path: &mut TestPath, data: &[u8], perms: libc::mode_t) {
     let fd = unsafe {
-        wrappers::open3(
-            path.c_str(),
-            libc::O_WRONLY | libc::O_CREAT,
-            libc::S_IRUSR,
-        )
+        wrappers::open3(path.c_str(), libc::O_WRONLY | libc::O_CREAT, perms)
     };
     assert!(fd > 0);
 

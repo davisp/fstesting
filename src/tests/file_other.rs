@@ -183,15 +183,13 @@ fn truncate_01() {
     let mut path = crate::test_dir();
     path.push("tr_01.txt");
 
-    crate::create_file(&mut path, "Hello, World!".as_bytes());
-    let err =
-        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
-    assert_eq!(err, 0);
+    crate::create_file_rw(&mut path, "Hello, World!".as_bytes());
 
     let st = crate::stat(&mut path);
     assert_eq!(st.st_size, 13);
 
     let err = unsafe { libc::truncate(path.c_str(), 0) };
+    assert_eq!(crate::errno(), 0);
     assert_eq!(err, 0);
 
     let st = crate::stat(&mut path);
@@ -205,10 +203,17 @@ fn truncate_02() {
     let mut path = crate::test_dir();
     path.push("tr_02.txt");
 
-    crate::create_file(&mut path, "Hello, World!".as_bytes());
-    let err =
-        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
+    crate::create_file_rw(&mut path, "Hello, World!".as_bytes());
+
+    let err = unsafe { libc::truncate(path.c_str(), 26) };
     assert_eq!(err, 0);
+
+    let st = crate::stat(&mut path);
+    assert_eq!(st.st_size, 26);
+    assert_eq!(
+        crate::read_file(&mut path),
+        "Hello, World!\0\0\0\0\0\0\0\0\0\0\0\0\0"
+    );
 }
 
 /// truncate_03: Truncate on read-only file
@@ -228,7 +233,7 @@ fn truncate_03() {
 #[test]
 fn truncate_04() {
     let mut path = crate::test_dir();
-    path.push("write_01.txt");
+    path.push("tr_04.txt");
 
     let fd = unsafe {
         crate::wrappers::open3(
