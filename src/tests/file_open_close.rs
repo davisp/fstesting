@@ -35,7 +35,7 @@ macro_rules! open_creat {
             let fd = unsafe { libc::open(path.c_str(), omode | libc::O_CREAT | oflags) };
 
             if success {
-                assert_eq!(crate::errno(), 0);
+                assert_eq!($crate::errno(), 0);
                 assert!(fd >= 0);
                 let err = unsafe { libc::close(fd) };
                 assert_eq!(err, 0);

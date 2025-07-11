@@ -659,10 +659,26 @@ fn write_10() {
 fn write_11() {
     let mut path = crate::test_dir();
     path.push("write_11.txt");
-    crate::create_file(&mut path, "Hello, World!".as_bytes());
 
-    let err =
-        unsafe { libc::chmod(path.c_str(), libc::S_IRUSR | libc::S_IWUSR) };
+    let fd = unsafe {
+        crate::wrappers::open3(
+            path.c_str(),
+            libc::O_WRONLY | libc::O_CREAT,
+            libc::S_IRUSR | libc::S_IWUSR,
+        )
+    };
+    assert!(fd > 0);
+
+    let size = unsafe {
+        libc::write(
+            fd,
+            "Hello, world!".as_bytes().as_ptr() as *const libc::c_void,
+            13,
+        )
+    };
+    assert_eq!(size, 13);
+
+    let err = unsafe { libc::close(fd) };
     assert_eq!(err, 0);
 
     let fd = unsafe {
