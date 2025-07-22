@@ -20,6 +20,9 @@ pub fn create_file_impl(path: &mut TestPath, data: &[u8], perms: libc::mode_t) {
     };
     assert_eq!(len as usize, data.len());
 
+    let err = unsafe { libc::fsync(fd) };
+    assert_eq!(err, 0);
+
     let err = unsafe { libc::close(fd) };
     assert_eq!(err, 0);
 }

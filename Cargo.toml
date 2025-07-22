@@ -7,5 +7,10 @@ edition = "2024"
 libc = "0.2"
 rand = "0.9"
 
+[dev-dependencies]
+quickcheck = "1"
+rand = "0.9"
+uuid = { version = "1.17", features = ["v7"] }
+
 [build-dependencies]
 cc = "1.2"
