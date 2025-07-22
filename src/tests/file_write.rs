@@ -65,6 +65,15 @@ fn write_02() {
     };
     assert!(fd > 0);
 
+    let len = unsafe {
+        libc::write(
+            fd,
+            "foo".as_bytes().as_ptr() as *const libc::c_void,
+            3
+        )
+    };
+    assert_eq!(len, 3);
+
     let err = unsafe { libc::close(fd) };
     assert_eq!(err, 0);
 
