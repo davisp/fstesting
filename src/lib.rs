@@ -1,3 +1,4 @@
+pub mod commands;
 pub mod enums;
 pub mod test_path;
 pub mod tests;

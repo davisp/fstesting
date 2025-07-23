@@ -1,11 +1,16 @@
-// Compare the behavior of two filesystems by running a random set of "commands"
-// against a read/write file on both filesystems and comparing the results.
+// Re-run all captured regressions from behavior-test
 
 use std::io::{Error, ErrorKind, Result};
+use std::panic;
 
-use quickcheck::quickcheck;
+use fstesting::commands::{BoundedUsize, Command, CommandsTest, MAX_FILE_SIZE};
 
-use fstesting::commands::{Command, CommandsTest, MAX_FILE_SIZE};
+fn test_1() -> Result<()> {
+    run_test(vec![
+        Command::PWrite(BoundedUsize::new(2011037), BoundedUsize::new(2539667)),
+        Command::PRead(BoundedUsize::new(1), BoundedUsize::new(5)),
+    ])
+}
 
 fn run_test(commands: Vec<Command>) -> Result<()> {
     let args = std::env::args().collect::<Vec<_>>();
@@ -30,7 +35,7 @@ fn main() -> Result<()> {
     // unlikely to reach that exactly.
     MAX_FILE_SIZE.get_or_init(|| (size * 1024 * 1024) / 2);
 
-    quickcheck(run_test as fn(_) -> _);
+    test_1()?;
 
     eprintln!("\nSuccess!");
     Ok(())
