@@ -129,12 +129,35 @@ impl Command {
         res1: Result<T>,
         res2: Result<T>,
     ) -> Result<()> {
-        if res1.is_ok() && res2.is_ok() {
-            assert_eq!(res1.ok().unwrap(), res2.ok().unwrap());
-        } else if res1.is_err() && res2.is_err() {
-            assert_eq!(res1.err().unwrap().kind(), res2.err().unwrap().kind());
-        } else {
-            panic!("Oh noes");
+        match (res1, res2) {
+            (Ok(v1), Ok(v2)) => {
+                if v1 != v2 {
+                    return Err(Error::new(
+                        ErrorKind::Other,
+                        format!("Ok result mismatch: {:?} != {:?}", v1, v2),
+                    ));
+                }
+            }
+            (Err(e1), Err(e2)) => {
+                if e1.kind() != e2.kind() {
+                    return Err(Error::new(
+                        ErrorKind::Other,
+                        format!("Err result mismatch: {:?} != {:?}", e1, e2),
+                    ));
+                }
+            }
+            (Ok(v1), Err(e2)) => {
+                return Err(Error::new(
+                    ErrorKind::Other,
+                    format!("Result mismatch: Ok({:?}) != Err({:?})", v1, e2),
+                ));
+            }
+            (Err(e1), Ok(v2)) => {
+                return Err(Error::new(
+                    ErrorKind::Other,
+                    format!("Result mismatch: Err({:?}) != Ok({:?})", e1, v2),
+                ));
+            }
         }
 
         Ok(())
