@@ -48,7 +48,7 @@ fn pread_01() {
                 (idx + 13) as i64,
             )
         };
-        let should_read = std::cmp::min(13, DATA_SIZE - idx);
+        let should_read = std::cmp::min(13, DATA_SIZE - (idx + 13));
         assert_eq!(len, should_read as isize);
         assert_eq!(
             &bytes[..should_read],
