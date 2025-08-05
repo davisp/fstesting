@@ -19,7 +19,7 @@ fn test_2() -> Result<()> {
 fn test_3() -> Result<()> {
     run_test(vec![
         Command::Truncate(BoundedUsize::new(2)),
-        Command::PRead(BoundedUsize::new(1), BoundedUsize::new(1))
+        Command::PRead(BoundedUsize::new(1), BoundedUsize::new(1)),
     ])
 }
 
@@ -30,6 +30,14 @@ fn test_4() -> Result<()> {
         Command::Truncate(BoundedUsize::new(662889)),
         Command::Reopen,
         Command::PRead(BoundedUsize::new(796278), BoundedUsize::new(1411041)),
+    ])
+}
+
+fn test_5() -> Result<()> {
+    run_test(vec![
+        Command::PWrite(BoundedUsize::new(2070909), BoundedUsize::new(849415)),
+        Command::Write(BoundedUsize::new(812677)),
+        Command::Read(BoundedUsize::new(2107648)),
     ])
 }
 
@@ -60,6 +68,7 @@ fn main() -> Result<()> {
     test_2()?;
     test_3()?;
     test_4()?;
+    test_5()?;
 
     eprintln!("\nSuccess!");
     Ok(())
