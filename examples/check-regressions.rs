@@ -56,6 +56,15 @@ fn test_7() -> Result<()> {
     ])
 }
 
+fn test_8() -> Result<()> {
+    run_test(vec![
+        Command::PWrite(BoundedUsize::new(1005002), BoundedUsize::new(1767560)),
+        Command::Truncate(BoundedUsize::new(1005002)),
+        Command::Truncate(BoundedUsize::new(1005002)),
+        Command::PRead(BoundedUsize::new(484420), BoundedUsize::new(699576)),
+    ])
+}
+
 fn run_test(commands: Vec<Command>) -> Result<()> {
     let args = std::env::args().collect::<Vec<_>>();
     assert_eq!(args.len(), 4);
@@ -86,6 +95,7 @@ fn main() -> Result<()> {
     test_5()?;
     test_6()?;
     test_7()?;
+    test_8()?;
 
     eprintln!("\nSuccess!");
     Ok(())
