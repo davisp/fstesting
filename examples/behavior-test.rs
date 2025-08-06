@@ -14,8 +14,12 @@ fn run_test(commands: Vec<Command>) -> Result<()> {
     let ret =
         CommandsTest::new(args[1].clone(), args[2].clone())?.run(commands);
     match ret {
-        Ok(_) => eprintln!("SUCCESS"),
-        Err(_) => eprintln!("FAILURE"),
+        Ok(_) => eprintln!("Success"),
+        Err(_) => {
+            eprintln!("\n***************");
+            eprintln!("*   FAILURE   *");
+            eprintln!("***************\n")
+        }
     }
     ret
 }

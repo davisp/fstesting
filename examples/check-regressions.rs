@@ -58,10 +58,10 @@ fn test_7() -> Result<()> {
 
 fn test_8() -> Result<()> {
     run_test(vec![
-        Command::PWrite(BoundedUsize::new(1005002), BoundedUsize::new(1767560)),
-        Command::Truncate(BoundedUsize::new(1005002)),
-        Command::Truncate(BoundedUsize::new(1005002)),
-        Command::PRead(BoundedUsize::new(484420), BoundedUsize::new(699576)),
+        Command::PWrite(BoundedUsize::new(200092), BoundedUsize::new(510702)),
+        Command::Truncate(BoundedUsize::new(284452)),
+        Command::PWrite(BoundedUsize::new(401548), BoundedUsize::new(515254)),
+        Command::PRead(BoundedUsize::new(54964), BoundedUsize::new(515875)),
     ])
 }
 
