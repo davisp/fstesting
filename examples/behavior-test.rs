@@ -11,7 +11,13 @@ fn run_test(commands: Vec<Command>) -> Result<()> {
     let args = std::env::args().collect::<Vec<_>>();
     assert_eq!(args.len(), 4);
 
-    CommandsTest::new(args[1].clone(), args[2].clone())?.run(commands)
+    let ret =
+        CommandsTest::new(args[1].clone(), args[2].clone())?.run(commands);
+    match ret {
+        Ok(_) => eprintln!("SUCCESS"),
+        Err(_) => eprintln!("FAILURE"),
+    }
+    ret
 }
 
 fn main() -> Result<()> {
