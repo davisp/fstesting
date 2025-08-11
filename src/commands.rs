@@ -124,7 +124,7 @@ impl Command {
                 let res1 = fd1.sync_all();
                 let res2 = fd2.sync_all();
 
-                self.check_res(res1, res2);
+                self.check_res(res1, res2)?;
 
                 let res1 = TestFile::size(fd1);
                 let res2 = TestFile::size(fd2);
